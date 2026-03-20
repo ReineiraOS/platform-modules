@@ -1,0 +1,23 @@
+{
+  "name": "platform-modules",
+  "version": "0.1.0",
+  "platform": "0.1",
+  "description": "Plug-and-play application starters for ReineiraOS ventures",
+  "type": "modules",
+  "repository": "https://github.com/ReineiraOS/platform-modules",
+  "packages": {
+    "backend": "@reineira-os/modules-backend",
+    "app": "@reineira-os/modules-app",
+    "payment-link": "@reineira-os/modules-payment-link"
+  },
+  "compatibility": {
+    "sdk": "^0.1.0",
+    "node": ">=18.0.0"
+  },
+  "ecosystem": {
+    "atlas": "https://github.com/ReineiraOS/reineira-atlas",
+    "code": "https://github.com/ReineiraOS/reineira-code",
+    "docs": "https://reineira.xyz/docs",
+    "sdk": "https://www.npmjs.com/package/@reineira-os/sdk"
+  }
+}

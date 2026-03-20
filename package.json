@@ -1,0 +1,34 @@
+{
+  "name": "@reineira-os/modules",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Plug-and-play application starters for ReineiraOS ventures",
+  "reineira": {
+    "platform": "0.1"
+  },
+  "scripts": {
+    "dev:backend": "pnpm --filter @reineira-os/modules-backend run dev",
+    "dev:app": "pnpm --filter @reineira-os/modules-app run dev",
+    "dev:payment-link": "pnpm --filter @reineira-os/modules-payment-link run dev",
+    "build": "pnpm -r run build",
+    "test": "pnpm -r run test",
+    "lint": "pnpm -r run lint",
+    "format": "prettier --write '**/*.{ts,js,json,vue,md}'",
+    "format:check": "prettier --check '**/*.{ts,js,json,vue,md}'"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.6",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "conventional-changelog-conventionalcommits": "^9.3.0",
+    "prettier": "^3.4.0",
+    "semantic-release": "^25.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "license": "MIT"
+}
