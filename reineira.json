@@ -7,8 +7,7 @@
   "repository": "https://github.com/ReineiraOS/platform-modules",
   "packages": {
     "backend": "@reineira-os/modules-backend",
-    "app": "@reineira-os/modules-app",
-    "payment-link": "@reineira-os/modules-payment-link"
+    "app": "@reineira-os/modules-app"
   },
   "compatibility": {
     "sdk": "^0.1.0",
