@@ -17,7 +17,6 @@ Builders clone this repo, pick the packages they need, and customize for their u
 packages/
   backend/       — @reineira-os/modules-backend
   app/           — @reineira-os/modules-app
-  payment-link/  — @reineira-os/modules-payment-link
 ```
 
 ## Packages
@@ -35,13 +34,6 @@ packages/
 - **Wallet:** ZeroDev ERC-4337 smart accounts with passkey authentication
 - **Auth:** WebAuthn passkeys → SIWE signing → backend JWT
 - **Layers:** Views, Router, Stores, Services, Composables, Components, Helpers
-
-### payment-link/ — Shareable Payment Link
-
-- **Stack:** Vue 3 + TypeScript + Vite + TailwindCSS + Wagmi + RainbowKit
-- **Flow:** External party clicks link → sees invoice → connects wallet → pays cross-chain USDC via CCTP
-- **Wallet:** Any wallet via RainbowKit/WalletConnect (external payers)
-- **Stores:** invoiceStore, paymentStore, walletStore, chainStore, balanceStore
 
 ## Ecosystem
 
@@ -63,7 +55,6 @@ packages/
 pnpm install                    # Install all deps
 pnpm dev:backend                # Run backend dev server
 pnpm dev:app                    # Run platform app (port 4831)
-pnpm dev:payment-link           # Run payment link app
 pnpm build                      # Build all packages
 pnpm test                       # Test all packages
 ```

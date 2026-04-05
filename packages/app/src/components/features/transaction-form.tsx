@@ -50,7 +50,7 @@ export function TransactionForm({ onSubmit }: TransactionFormProps) {
           onChange={(e) => setAmount(e.target.value)}
         />
         <Input
-          label="Deadline"
+          label="Due Date"
           type="date"
           min={minDate}
           value={deadline}

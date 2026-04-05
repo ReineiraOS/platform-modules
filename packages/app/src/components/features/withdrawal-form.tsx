@@ -10,14 +10,13 @@ interface WithdrawalFormProps {
 }
 
 const chainOptions = [
-  { value: 'ethereum', label: 'Ethereum' },
-  { value: 'arbitrum', label: 'Arbitrum' },
-  { value: 'base', label: 'Base' },
-  { value: 'polygon', label: 'Polygon' },
+  { value: 'ETH', label: 'Ethereum' },
+  { value: 'BASE', label: 'Base' },
+  { value: 'POLYGON', label: 'Polygon' },
 ];
 
 export function WithdrawalForm({ transactions, onSubmit }: WithdrawalFormProps) {
-  const [destinationChain, setDestinationChain] = useState('ethereum');
+  const [destinationChain, setDestinationChain] = useState('ETH');
   const [recipientAddress, setRecipientAddress] = useState('');
   const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
   const [submitting, setSubmitting] = useState(false);
