@@ -12,10 +12,20 @@ interface WithdrawalListProps {
 
 function statusVariant(status: string): 'success' | 'warning' | 'error' | 'info' | 'default' {
   const map: Record<string, 'success' | 'warning' | 'error' | 'info' | 'default'> = {
-    COMPLETED: 'success', REDEEMED: 'success', PAID: 'success',
-    PENDING: 'warning', PENDING_REDEEM: 'warning', PENDING_BRIDGE: 'warning', PROCESSING: 'warning', BRIDGING: 'warning',
-    ISSUED: 'info', DRAFT: 'info',
-    FAILED: 'error', CANCELED: 'error', CANCELLED: 'error', OVERDUE: 'error',
+    COMPLETED: 'success',
+    REDEEMED: 'success',
+    PAID: 'success',
+    PENDING: 'warning',
+    PENDING_REDEEM: 'warning',
+    PENDING_BRIDGE: 'warning',
+    PROCESSING: 'warning',
+    BRIDGING: 'warning',
+    ISSUED: 'info',
+    DRAFT: 'info',
+    FAILED: 'error',
+    CANCELED: 'error',
+    CANCELLED: 'error',
+    OVERDUE: 'error',
   };
   return map[status] ?? 'default';
 }
@@ -75,9 +85,7 @@ export function WithdrawalList({ withdrawals, loading, hasMore, onLoadMore }: Wi
       )}
 
       {!loading && withdrawals.length === 0 && (
-        <p className="py-8 text-center text-sm text-[var(--text-secondary)]">
-          No withdrawals yet
-        </p>
+        <p className="py-8 text-center text-sm text-[var(--text-secondary)]">No withdrawals yet</p>
       )}
 
       {hasMore && (

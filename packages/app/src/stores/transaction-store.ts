@@ -1,5 +1,9 @@
 import { create } from 'zustand';
-import { TransactionService, type TransactionResponse, type CreateTransactionRequest } from '@/services/TransactionService';
+import {
+  TransactionService,
+  type TransactionResponse,
+  type CreateTransactionRequest,
+} from '@/services/TransactionService';
 
 interface TransactionState {
   transactions: TransactionResponse[];

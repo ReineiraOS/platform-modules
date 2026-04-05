@@ -19,10 +19,7 @@ export class MemoryWithdrawalRepository implements IWithdrawalRepository {
     return null;
   }
 
-  async findByUserId(
-    userId: string,
-    options?: FindWithdrawalsByUserIdOptions,
-  ): Promise<PaginatedResult<Withdrawal>> {
+  async findByUserId(userId: string, options?: FindWithdrawalsByUserIdOptions): Promise<PaginatedResult<Withdrawal>> {
     let items = [...this.store.values()]
       .filter((w) => w.userId === userId)
       .filter((w) => (options?.status ? w.status === options.status : true))

@@ -62,9 +62,7 @@ describe('RefreshTokenUseCase', () => {
 
   it('rotates the session — deletes old session and creates a new one', async () => {
     const { refreshToken } = await seedUserAndSession();
-    const sessionsBeforeRefresh = await sessionRepo.findByUserId(
-      (await userRepo.findByWalletAddress('0xuser'))!.id,
-    );
+    const sessionsBeforeRefresh = await sessionRepo.findByUserId((await userRepo.findByWalletAddress('0xuser'))!.id);
     const oldSessionId = sessionsBeforeRefresh[0]!.id;
 
     const firstResult = await useCase.execute({ refresh_token: refreshToken });

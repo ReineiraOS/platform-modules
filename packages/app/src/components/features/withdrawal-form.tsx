@@ -21,15 +21,13 @@ export function WithdrawalForm({ transactions, onSubmit }: WithdrawalFormProps) 
   const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
   const [submitting, setSubmitting] = useState(false);
 
-  const settledTransactions = useMemo(
-    () => transactions.filter((txn) => txn.status === 'SETTLED'),
-    [transactions],
-  );
+  const settledTransactions = useMemo(() => transactions.filter((txn) => txn.status === 'SETTLED'), [transactions]);
 
   const selectedTotal = useMemo(
-    () => settledTransactions
-      .filter((txn) => selectedIds.has(Number(txn.on_chain_escrow_id)))
-      .reduce((sum, txn) => sum + txn.amount, 0),
+    () =>
+      settledTransactions
+        .filter((txn) => selectedIds.has(Number(txn.on_chain_escrow_id)))
+        .reduce((sum, txn) => sum + txn.amount, 0),
     [settledTransactions, selectedIds],
   );
 
@@ -79,7 +77,9 @@ export function WithdrawalForm({ transactions, onSubmit }: WithdrawalFormProps) 
                   onChange={() => toggleTransaction(txn.on_chain_escrow_id)}
                   className="h-4 w-4 rounded border-[var(--border-dark)] accent-[var(--accent-blue)]"
                 />
-                <span className="flex-1 text-sm text-[var(--text-primary)]">{txn.external_reference || txn.public_id}</span>
+                <span className="flex-1 text-sm text-[var(--text-primary)]">
+                  {txn.external_reference || txn.public_id}
+                </span>
                 <span className="text-sm font-medium text-[var(--text-primary)]">{txn.amount} USDC</span>
               </label>
             ))}
@@ -91,9 +91,7 @@ export function WithdrawalForm({ transactions, onSubmit }: WithdrawalFormProps) 
           )}
         </div>
       ) : (
-        <p className="text-sm text-[var(--text-secondary)]">
-          No settled transactions available for withdrawal.
-        </p>
+        <p className="text-sm text-[var(--text-secondary)]">No settled transactions available for withdrawal.</p>
       )}
 
       <div className="grid gap-4 sm:grid-cols-2">

@@ -20,13 +20,13 @@ chore: update shared dependencies
 BREAKING CHANGE: restructure backend API routes
 ```
 
-| Prefix             | Version bump           | When to use                    |
-| ------------------ | ---------------------- | ------------------------------ |
-| `feat:`            | Minor (0.1.0 → 0.2.0) | New feature                    |
-| `fix:`             | Patch (0.1.0 → 0.1.1) | Bug fix                        |
-| `docs:`            | No bump                | Documentation only             |
-| `chore:`           | No bump                | Tooling, deps                  |
-| `BREAKING CHANGE:` | Major (0.1.0 → 1.0.0) | API change, platform bump      |
+| Prefix             | Version bump          | When to use               |
+| ------------------ | --------------------- | ------------------------- |
+| `feat:`            | Minor (0.1.0 → 0.2.0) | New feature               |
+| `fix:`             | Patch (0.1.0 → 0.1.1) | Bug fix                   |
+| `docs:`            | No bump               | Documentation only        |
+| `chore:`           | No bump               | Tooling, deps             |
+| `BREAKING CHANGE:` | Major (0.1.0 → 1.0.0) | API change, platform bump |
 
 Use scope to indicate package: `feat(backend):`, `fix(app):`.
 

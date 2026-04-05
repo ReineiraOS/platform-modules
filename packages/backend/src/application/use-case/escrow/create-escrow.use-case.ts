@@ -19,8 +19,7 @@ const DECIMALS: Record<string, number> = {
 
 const DEFAULT_DECIMALS = 18;
 
-const ABI_FUNCTION_SIGNATURE =
-  'createEscrow((bytes,int32,uint8,bytes),(bytes,int32,uint8,bytes),address,bytes)';
+const ABI_FUNCTION_SIGNATURE = 'createEscrow((bytes,int32,uint8,bytes),(bytes,int32,uint8,bytes),address,bytes)';
 
 function toSmallestUnit(amount: number, currencyCode: string): bigint {
   const decimals = DECIMALS[currencyCode.toUpperCase()] ?? DEFAULT_DECIMALS;
@@ -76,11 +75,7 @@ export class CreateEscrowUseCase {
       };
     }
 
-    const encryptedData = await this.fheService.encryptEscrowData(
-      amountInSmallestUnit,
-      walletAddress,
-      walletAddress,
-    );
+    const encryptedData = await this.fheService.encryptEscrowData(amountInSmallestUnit, walletAddress, walletAddress);
 
     const abiParameters = encryptedData.getContractCallParameters();
 

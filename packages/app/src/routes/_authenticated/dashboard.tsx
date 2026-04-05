@@ -50,11 +50,7 @@ export function DashboardPage() {
         </Card>
 
         <Card title="Recent Withdrawals">
-          <WithdrawalList
-            withdrawals={withdrawals.slice(0, 5)}
-            loading={withdrawalLoading}
-            hasMore={false}
-          />
+          <WithdrawalList withdrawals={withdrawals.slice(0, 5)} loading={withdrawalLoading} hasMore={false} />
           {withdrawals.length > 0 && (
             <div className="mt-4 border-t border-[var(--border-dark)] pt-4">
               <Link

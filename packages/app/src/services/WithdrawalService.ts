@@ -46,9 +46,11 @@ export class WithdrawalService {
     return data;
   }
 
-  static async list(
-    params?: { limit?: number; continuation_token?: string; status?: string },
-  ): Promise<PaginatedResponse<WithdrawalResponse>> {
+  static async list(params?: {
+    limit?: number;
+    continuation_token?: string;
+    status?: string;
+  }): Promise<PaginatedResponse<WithdrawalResponse>> {
     const { data } = await httpClient.get<PaginatedResponse<WithdrawalResponse>>('/v1/withdrawals', { params });
     return data;
   }
@@ -70,18 +72,14 @@ export class WithdrawalService {
     return data;
   }
 
-  static async bridgeChallenge(
-    publicId: string,
-  ): Promise<{ public_id: string; challenge: string; status: string }> {
+  static async bridgeChallenge(publicId: string): Promise<{ public_id: string; challenge: string; status: string }> {
     const { data } = await httpClient.post<{ public_id: string; challenge: string; status: string }>(
       `/v1/withdrawals/${publicId}/bridge/challenge`,
     );
     return data;
   }
 
-  static async bridgeReadiness(
-    publicId: string,
-  ): Promise<{ public_id: string; ready: boolean; status: string }> {
+  static async bridgeReadiness(publicId: string): Promise<{ public_id: string; ready: boolean; status: string }> {
     const { data } = await httpClient.get<{ public_id: string; ready: boolean; status: string }>(
       `/v1/withdrawals/${publicId}/bridge/readiness`,
     );

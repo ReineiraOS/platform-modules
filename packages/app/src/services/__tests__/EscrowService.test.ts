@@ -46,11 +46,7 @@ describe('EscrowService', () => {
 
       const result = await EscrowService.createWithClientEncrypt(request);
 
-      expect(mockPost).toHaveBeenCalledWith(
-        '/v1/escrows',
-        request,
-        { headers: { 'X-Encryption-Mode': 'client' } },
-      );
+      expect(mockPost).toHaveBeenCalledWith('/v1/escrows', request, { headers: { 'X-Encryption-Mode': 'client' } });
       expect(result).toEqual(escrowResponse);
     });
   });
@@ -67,10 +63,10 @@ describe('EscrowService', () => {
 
       const result = await EscrowService.reportTransaction('0xtxhash', 'escrow-1');
 
-      expect(mockPost).toHaveBeenCalledWith(
-        '/v1/transactions/escrows/report',
-        { tx_hash: '0xtxhash', entity_id: 'escrow-1' },
-      );
+      expect(mockPost).toHaveBeenCalledWith('/v1/transactions/escrows/report', {
+        tx_hash: '0xtxhash',
+        entity_id: 'escrow-1',
+      });
       expect(result).toEqual(txResponse);
     });
   });

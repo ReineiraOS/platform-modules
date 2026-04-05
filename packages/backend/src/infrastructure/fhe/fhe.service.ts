@@ -27,11 +27,7 @@ export class FheService implements IFheService {
     this.initialized = true;
   }
 
-  async encryptEscrowData(
-    amount: bigint,
-    ownerAddress: string,
-    userAddress: string,
-  ): Promise<EncryptedEscrowData> {
+  async encryptEscrowData(amount: bigint, ownerAddress: string, userAddress: string): Promise<EncryptedEscrowData> {
     await this.ensureInitialized();
 
     const response = await this.client.encryptBatch(userAddress, [

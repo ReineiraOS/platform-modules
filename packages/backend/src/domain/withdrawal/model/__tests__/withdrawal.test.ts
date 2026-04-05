@@ -104,17 +104,13 @@ describe('Withdrawal', () => {
   describe('markBridgeInitiated', () => {
     it('sets bridgeTxHash', () => {
       const hash = '0x' + 'b'.repeat(64);
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.PENDING_BRIDGE }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.PENDING_BRIDGE }));
       withdrawal.markBridgeInitiated(hash);
       expect(withdrawal.bridgeTxHash).toBe(hash);
     });
 
     it('changes status to BRIDGING', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.PENDING_BRIDGE }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.PENDING_BRIDGE }));
       withdrawal.markBridgeInitiated('0x' + 'b'.repeat(64));
       expect(withdrawal.status).toBe(WithdrawalStatus.BRIDGING);
     });
@@ -129,9 +125,7 @@ describe('Withdrawal', () => {
     });
 
     it('returns this for chaining', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.PENDING_BRIDGE }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.PENDING_BRIDGE }));
       expect(withdrawal.markBridgeInitiated('0x' + 'b'.repeat(64))).toBe(withdrawal);
     });
   });
@@ -139,25 +133,19 @@ describe('Withdrawal', () => {
   describe('markCompleted', () => {
     it('sets destinationTxHash', () => {
       const hash = '0x' + 'c'.repeat(64);
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }));
       withdrawal.markCompleted(hash);
       expect(withdrawal.destinationTxHash).toBe(hash);
     });
 
     it('changes status to COMPLETED', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }));
       withdrawal.markCompleted('0x' + 'c'.repeat(64));
       expect(withdrawal.status).toBe(WithdrawalStatus.COMPLETED);
     });
 
     it('sets completedAt', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }));
       expect(withdrawal.completedAt).toBeUndefined();
       withdrawal.markCompleted('0x' + 'c'.repeat(64));
       expect(withdrawal.completedAt).toBeInstanceOf(Date);
@@ -173,9 +161,7 @@ describe('Withdrawal', () => {
     });
 
     it('returns this for chaining', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }));
       expect(withdrawal.markCompleted('0x' + 'c'.repeat(64))).toBe(withdrawal);
     });
   });
@@ -208,74 +194,54 @@ describe('Withdrawal', () => {
 
   describe('canCreateBridgeChallenge', () => {
     it('returns true when status is PENDING_BRIDGE', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.PENDING_BRIDGE }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.PENDING_BRIDGE }));
       expect(withdrawal.canCreateBridgeChallenge()).toBe(true);
     });
 
     it('returns false when status is PENDING_REDEEM', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.PENDING_REDEEM }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.PENDING_REDEEM }));
       expect(withdrawal.canCreateBridgeChallenge()).toBe(false);
     });
 
     it('returns false when status is BRIDGING', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }));
       expect(withdrawal.canCreateBridgeChallenge()).toBe(false);
     });
 
     it('returns false when status is COMPLETED', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.COMPLETED }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.COMPLETED }));
       expect(withdrawal.canCreateBridgeChallenge()).toBe(false);
     });
 
     it('returns false when status is FAILED', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.FAILED }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.FAILED }));
       expect(withdrawal.canCreateBridgeChallenge()).toBe(false);
     });
   });
 
   describe('isTerminal', () => {
     it('returns true when status is COMPLETED', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.COMPLETED }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.COMPLETED }));
       expect(withdrawal.isTerminal()).toBe(true);
     });
 
     it('returns true when status is FAILED', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.FAILED }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.FAILED }));
       expect(withdrawal.isTerminal()).toBe(true);
     });
 
     it('returns false when status is PENDING_REDEEM', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.PENDING_REDEEM }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.PENDING_REDEEM }));
       expect(withdrawal.isTerminal()).toBe(false);
     });
 
     it('returns false when status is PENDING_BRIDGE', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.PENDING_BRIDGE }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.PENDING_BRIDGE }));
       expect(withdrawal.isTerminal()).toBe(false);
     });
 
     it('returns false when status is BRIDGING', () => {
-      const withdrawal = new Withdrawal(
-        makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }),
-      );
+      const withdrawal = new Withdrawal(makeWithdrawalParams({ status: WithdrawalStatus.BRIDGING }));
       expect(withdrawal.isTerminal()).toBe(false);
     });
   });

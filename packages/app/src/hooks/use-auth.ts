@@ -2,13 +2,7 @@ import { useAuthStore } from '@/stores/auth-store';
 import { useWalletStore } from '@/stores/wallet-store';
 import { AuthService } from '@/services/AuthService';
 
-function buildSiweMessage(
-  domain: string,
-  address: string,
-  statement: string,
-  uri: string,
-  nonce: string,
-): string {
+function buildSiweMessage(domain: string, address: string, statement: string, uri: string, nonce: string): string {
   const now = new Date().toISOString();
   return [
     `${domain} wants you to sign in with your Ethereum account:`,

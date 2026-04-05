@@ -61,9 +61,7 @@ function handleError(error: unknown, operationName: string): HttpResponse {
   return Response.internalServerError();
 }
 
-export function createHandler<TDto, TResult>(
-  config: CreateHandlerConfig<TDto, TResult>,
-): VercelHandler {
+export function createHandler<TDto, TResult>(config: CreateHandlerConfig<TDto, TResult>): VercelHandler {
   const { operationName, schema, execute } = config;
 
   return async (req: VercelRequest, res: VercelResponse): Promise<void> => {
@@ -92,9 +90,7 @@ export function createHandler<TDto, TResult>(
   };
 }
 
-export function createGetHandler<TResult>(
-  config: CreateGetHandlerConfig<TResult>,
-): VercelHandler {
+export function createGetHandler<TResult>(config: CreateGetHandlerConfig<TResult>): VercelHandler {
   const { operationName, execute } = config;
 
   return async (req: VercelRequest, res: VercelResponse): Promise<void> => {

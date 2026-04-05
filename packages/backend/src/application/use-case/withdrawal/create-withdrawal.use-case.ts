@@ -31,11 +31,7 @@ export class CreateWithdrawalUseCase {
     private readonly withdrawalRepository: IWithdrawalRepository,
   ) {}
 
-  async execute(
-    dto: CreateWithdrawalDto,
-    userId: string,
-    walletAddress: string,
-  ): Promise<CreateWithdrawalResponse> {
+  async execute(dto: CreateWithdrawalDto, userId: string, walletAddress: string): Promise<CreateWithdrawalResponse> {
     let estimatedAmount = 0;
     const onChainIds: number[] = [];
 
@@ -48,9 +44,7 @@ export class CreateWithdrawalUseCase {
         throw ApplicationHttpError.forbidden('Escrow does not belong to user');
       }
       if (escrow.status !== EscrowStatus.SETTLED) {
-        throw ApplicationHttpError.badRequest(
-          `Escrow ${escrowId} is not in SETTLED status`,
-        );
+        throw ApplicationHttpError.badRequest(`Escrow ${escrowId} is not in SETTLED status`);
       }
       estimatedAmount += escrow.amount;
       onChainIds.push(escrowId);

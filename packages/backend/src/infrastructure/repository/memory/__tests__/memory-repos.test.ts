@@ -56,7 +56,10 @@ function makeEscrow(userId: string, overrides: Partial<ConstructorParameters<typ
   });
 }
 
-function makeWithdrawal(userId: string, overrides: Partial<ConstructorParameters<typeof Withdrawal>[0]> = {}): Withdrawal {
+function makeWithdrawal(
+  userId: string,
+  overrides: Partial<ConstructorParameters<typeof Withdrawal>[0]> = {},
+): Withdrawal {
   return new Withdrawal({
     id: randomUUID(),
     publicId: `WD-${randomUUID().slice(0, 8).toUpperCase()}`,

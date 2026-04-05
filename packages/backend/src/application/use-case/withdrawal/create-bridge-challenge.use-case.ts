@@ -19,9 +19,7 @@ export class CreateBridgeChallengeUseCase {
       throw ApplicationHttpError.forbidden('Withdrawal does not belong to user');
     }
     if (!withdrawal.canCreateBridgeChallenge()) {
-      throw ApplicationHttpError.badRequest(
-        `Cannot create bridge challenge in status ${withdrawal.status}`,
-      );
+      throw ApplicationHttpError.badRequest(`Cannot create bridge challenge in status ${withdrawal.status}`);
     }
 
     withdrawal.markBridgeInitiated(withdrawal.bridgeTxHash ?? '');

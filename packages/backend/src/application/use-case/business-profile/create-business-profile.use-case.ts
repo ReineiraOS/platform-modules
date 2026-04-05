@@ -1,7 +1,10 @@
 import { randomUUID } from 'crypto';
 import type { IBusinessProfileRepository } from '../../../domain/business-profile/repository/business-profile.repository.js';
 import { BusinessProfile } from '../../../domain/business-profile/model/business-profile.js';
-import type { CreateBusinessProfileDto, BusinessProfileResponse } from '../../dto/business-profile/create-business-profile.dto.js';
+import type {
+  CreateBusinessProfileDto,
+  BusinessProfileResponse,
+} from '../../dto/business-profile/create-business-profile.dto.js';
 
 export class CreateBusinessProfileUseCase {
   constructor(private readonly businessProfileRepository: IBusinessProfileRepository) {}

@@ -15,11 +15,7 @@ const postHandler = createHandler({
   operationName: 'CreateWithdrawal',
   schema: CreateWithdrawalDtoSchema,
   execute: async (dto, _req, authPayload) => {
-    const result = await createWithdrawalUseCase.execute(
-      dto,
-      authPayload!.userId,
-      authPayload!.walletAddress,
-    );
+    const result = await createWithdrawalUseCase.execute(dto, authPayload!.userId, authPayload!.walletAddress);
     return Response.created(result);
   },
 });

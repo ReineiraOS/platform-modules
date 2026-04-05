@@ -94,11 +94,7 @@ describe('CreateWithdrawalUseCase', () => {
 
   it('rejects with 404 if escrow on-chain id is not found', async () => {
     await expect(
-      useCase.execute(
-        { escrow_ids: [999], destination_chain: 'ETH', recipient_address: RECIPIENT },
-        USER_ID,
-        WALLET,
-      ),
+      useCase.execute({ escrow_ids: [999], destination_chain: 'ETH', recipient_address: RECIPIENT }, USER_ID, WALLET),
     ).rejects.toMatchObject({ statusCode: 404 });
   });
 
@@ -118,11 +114,7 @@ describe('CreateWithdrawalUseCase', () => {
     await escrowRepo.save(escrow);
 
     await expect(
-      useCase.execute(
-        { escrow_ids: [5], destination_chain: 'ETH', recipient_address: RECIPIENT },
-        USER_ID,
-        WALLET,
-      ),
+      useCase.execute({ escrow_ids: [5], destination_chain: 'ETH', recipient_address: RECIPIENT }, USER_ID, WALLET),
     ).rejects.toMatchObject({ statusCode: 400 });
   });
 
@@ -130,11 +122,7 @@ describe('CreateWithdrawalUseCase', () => {
     await escrowRepo.save(makeSettledEscrow('7', randomUUID()));
 
     await expect(
-      useCase.execute(
-        { escrow_ids: [7], destination_chain: 'ETH', recipient_address: RECIPIENT },
-        USER_ID,
-        WALLET,
-      ),
+      useCase.execute({ escrow_ids: [7], destination_chain: 'ETH', recipient_address: RECIPIENT }, USER_ID, WALLET),
     ).rejects.toMatchObject({ statusCode: 403 });
   });
 
@@ -153,11 +141,7 @@ describe('CreateWithdrawalUseCase', () => {
 
   it('rejects with ApplicationHttpError for missing escrow', async () => {
     await expect(
-      useCase.execute(
-        { escrow_ids: [404], destination_chain: 'ETH', recipient_address: RECIPIENT },
-        USER_ID,
-        WALLET,
-      ),
+      useCase.execute({ escrow_ids: [404], destination_chain: 'ETH', recipient_address: RECIPIENT }, USER_ID, WALLET),
     ).rejects.toBeInstanceOf(ApplicationHttpError);
   });
 });

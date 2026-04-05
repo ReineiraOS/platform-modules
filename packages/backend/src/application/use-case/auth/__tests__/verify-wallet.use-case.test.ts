@@ -100,16 +100,16 @@ describe('VerifyWalletUseCase', () => {
   it('throws unauthorized when SIWE signature is invalid', async () => {
     vi.mocked(siweVerifier.verify).mockResolvedValue({ address: '', valid: false });
 
-    await expect(
-      useCase.execute({ wallet_address: WALLET, message: 'msg', signature: '0xbad' }),
-    ).rejects.toThrow(ApplicationHttpError);
+    await expect(useCase.execute({ wallet_address: WALLET, message: 'msg', signature: '0xbad' })).rejects.toThrow(
+      ApplicationHttpError,
+    );
   });
 
   it('throws unauthorized when nonce is invalid', async () => {
     const message = buildSiweMessage('wrongnonce');
 
-    await expect(
-      useCase.execute({ wallet_address: WALLET, message, signature: '0xsig' }),
-    ).rejects.toMatchObject({ statusCode: 401 });
+    await expect(useCase.execute({ wallet_address: WALLET, message, signature: '0xsig' })).rejects.toMatchObject({
+      statusCode: 401,
+    });
   });
 });

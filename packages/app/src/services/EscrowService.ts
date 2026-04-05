@@ -15,14 +15,10 @@ export interface CreateEscrowClientEncryptResponse {
 }
 
 export class EscrowService {
-  static async createWithClientEncrypt(
-    req: CreateTransactionRequest,
-  ): Promise<CreateEscrowClientEncryptResponse> {
-    const { data } = await httpClient.post<CreateEscrowClientEncryptResponse>(
-      '/v1/escrows',
-      req,
-      { headers: { 'X-Encryption-Mode': 'client' } },
-    );
+  static async createWithClientEncrypt(req: CreateTransactionRequest): Promise<CreateEscrowClientEncryptResponse> {
+    const { data } = await httpClient.post<CreateEscrowClientEncryptResponse>('/v1/escrows', req, {
+      headers: { 'X-Encryption-Mode': 'client' },
+    });
     return data;
   }
 

@@ -49,12 +49,7 @@ export function WalletConnectButton() {
 
   return (
     <div className="flex flex-col gap-3">
-      <Button
-        size="lg"
-        loading={loading && !showRegister}
-        disabled={loading}
-        onClick={handleLogin}
-      >
+      <Button size="lg" loading={loading && !showRegister} disabled={loading} onClick={handleLogin}>
         <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M13.8 12H3" />
         </svg>
@@ -72,12 +67,7 @@ export function WalletConnectButton() {
             className="w-full rounded-lg border border-[var(--border-dark)] bg-[var(--background)] px-4 py-2.5 text-sm outline-none transition-colors focus:border-[var(--accent-blue)]"
             onKeyDown={(e) => e.key === 'Enter' && handleRegister()}
           />
-          <Button
-            size="lg"
-            loading={loading && showRegister}
-            disabled={loading}
-            onClick={handleRegister}
-          >
+          <Button size="lg" loading={loading && showRegister} disabled={loading} onClick={handleRegister}>
             Create Account
           </Button>
         </div>
@@ -105,9 +95,7 @@ export function WalletConnectButton() {
         </button>
       )}
 
-      {error && (
-        <p className="text-center text-sm text-[var(--status-error)]">{error}</p>
-      )}
+      {error && <p className="text-center text-sm text-[var(--status-error)]">{error}</p>}
     </div>
   );
 }

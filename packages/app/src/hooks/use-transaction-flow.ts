@@ -1,31 +1,45 @@
 import { useCallback, useState } from 'react';
 import { encodeFunctionData } from 'viem';
-import { TransactionService, type CreateTransactionRequest, type CreateTransactionResponse } from '@/services/TransactionService';
+import {
+  TransactionService,
+  type CreateTransactionRequest,
+  type CreateTransactionResponse,
+} from '@/services/TransactionService';
 import { useWalletStore } from '@/stores/wallet-store';
 import { useTransactionStore } from '@/stores/transaction-store';
 
-const ESCROW_ABI = [{
-  name: 'create',
-  type: 'function',
-  inputs: [
-    { name: 'encryptedOwner', type: 'tuple', components: [
-      { name: 'ctHash', type: 'uint256' },
-      { name: 'securityZone', type: 'uint8' },
-      { name: 'utype', type: 'uint8' },
-      { name: 'signature', type: 'bytes' },
-    ]},
-    { name: 'encryptedAmount', type: 'tuple', components: [
-      { name: 'ctHash', type: 'uint256' },
-      { name: 'securityZone', type: 'uint8' },
-      { name: 'utype', type: 'uint8' },
-      { name: 'signature', type: 'bytes' },
-    ]},
-    { name: 'resolver', type: 'address' },
-    { name: 'resolverData', type: 'bytes' },
-  ],
-  outputs: [],
-  stateMutability: 'nonpayable',
-}] as const;
+const ESCROW_ABI = [
+  {
+    name: 'create',
+    type: 'function',
+    inputs: [
+      {
+        name: 'encryptedOwner',
+        type: 'tuple',
+        components: [
+          { name: 'ctHash', type: 'uint256' },
+          { name: 'securityZone', type: 'uint8' },
+          { name: 'utype', type: 'uint8' },
+          { name: 'signature', type: 'bytes' },
+        ],
+      },
+      {
+        name: 'encryptedAmount',
+        type: 'tuple',
+        components: [
+          { name: 'ctHash', type: 'uint256' },
+          { name: 'securityZone', type: 'uint8' },
+          { name: 'utype', type: 'uint8' },
+          { name: 'signature', type: 'bytes' },
+        ],
+      },
+      { name: 'resolver', type: 'address' },
+      { name: 'resolverData', type: 'bytes' },
+    ],
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+] as const;
 
 export const TRANSACTION_FLOW_STEPS = [
   { label: 'Creating transaction' },
@@ -66,16 +80,24 @@ export function useTransactionFlow() {
         abi: ESCROW_ABI,
         functionName: 'create',
         args: [
-          response.abi_parameters.encrypted_owner as unknown as { ctHash: bigint; securityZone: number; utype: number; signature: `0x${string}` },
-          response.abi_parameters.encrypted_amount as unknown as { ctHash: bigint; securityZone: number; utype: number; signature: `0x${string}` },
+          response.abi_parameters.encrypted_owner as unknown as {
+            ctHash: bigint;
+            securityZone: number;
+            utype: number;
+            signature: `0x${string}`;
+          },
+          response.abi_parameters.encrypted_amount as unknown as {
+            ctHash: bigint;
+            securityZone: number;
+            utype: number;
+            signature: `0x${string}`;
+          },
           response.abi_parameters.resolver as `0x${string}`,
           response.abi_parameters.resolver_data as `0x${string}`,
         ],
       });
 
-      const txHash = await useWalletStore.getState().sendUserOperation([
-        { to: response.contract_address, data },
-      ]);
+      const txHash = await useWalletStore.getState().sendUserOperation([{ to: response.contract_address, data }]);
 
       setCurrentStep(2);
       await TransactionService.reportTransaction(txHash, response.public_id);

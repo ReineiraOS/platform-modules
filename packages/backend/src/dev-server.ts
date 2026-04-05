@@ -27,9 +27,7 @@ function scanRoutes(dir: string, base = ''): Route[] {
 
     if (!entry.endsWith('.ts')) continue;
 
-    const routePath = entry === 'index.ts'
-      ? base || '/'
-      : `${base}/${entry.replace('.ts', '')}`;
+    const routePath = entry === 'index.ts' ? base || '/' : `${base}/${entry.replace('.ts', '')}`;
 
     const paramNames: string[] = [];
     const patternStr = routePath
@@ -70,10 +68,17 @@ function parseBody(req: IncomingMessage): Promise<unknown> {
     req.on('data', (chunk: Buffer) => chunks.push(chunk));
     req.on('end', () => {
       const raw = Buffer.concat(chunks).toString();
-      if (!raw) { resolve(undefined); return; }
+      if (!raw) {
+        resolve(undefined);
+        return;
+      }
       const ct = req.headers['content-type'] ?? '';
       if (ct.includes('application/json')) {
-        try { resolve(JSON.parse(raw)); } catch { resolve(raw); }
+        try {
+          resolve(JSON.parse(raw));
+        } catch {
+          resolve(raw);
+        }
       } else {
         resolve(raw);
       }
@@ -155,7 +160,9 @@ async function main() {
 
     const paramValues = pathname.match(matched.pattern)!.slice(1);
     const pathParams: Record<string, string> = {};
-    matched.paramNames.forEach((name, i) => { pathParams[name] = paramValues[i]; });
+    matched.paramNames.forEach((name, i) => {
+      pathParams[name] = paramValues[i];
+    });
 
     const query: Record<string, string | string[]> = { ...pathParams };
     for (const [key, value] of searchParams) {

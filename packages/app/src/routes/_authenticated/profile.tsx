@@ -19,7 +19,9 @@ export function ProfilePage() {
 
   function formatDate(iso: string) {
     return new Date(iso).toLocaleDateString('en-US', {
-      month: 'long', day: 'numeric', year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
     });
   }
 

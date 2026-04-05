@@ -2,9 +2,7 @@
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
   "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/((?!assets/).*)", "destination": "/index.html" }
-  ],
+  "rewrites": [{ "source": "/((?!assets/).*)", "destination": "/index.html" }],
   "headers": [
     {
       "source": "/(.*)",

@@ -41,10 +41,7 @@ describe('ReportEscrowTransactionUseCase', () => {
     const escrow = makeEscrow();
     await escrowRepo.save(escrow);
 
-    const result = await useCase.execute(
-      { entity_id: escrow.publicId, tx_hash: TX_HASH },
-      USER_ID,
-    );
+    const result = await useCase.execute({ entity_id: escrow.publicId, tx_hash: TX_HASH }, USER_ID);
 
     expect(result.tx_hash).toBe(TX_HASH);
     expect(result.status).toBe(EscrowStatus.PROCESSING);
@@ -65,10 +62,7 @@ describe('ReportEscrowTransactionUseCase', () => {
     });
     await escrowEventRepo.save(bufferedEvent);
 
-    const result = await useCase.execute(
-      { entity_id: escrow.publicId, tx_hash: TX_HASH },
-      USER_ID,
-    );
+    const result = await useCase.execute({ entity_id: escrow.publicId, tx_hash: TX_HASH }, USER_ID);
 
     expect(result.status).toBe(EscrowStatus.ON_CHAIN);
 
@@ -111,32 +105,29 @@ describe('ReportEscrowTransactionUseCase', () => {
       }),
     );
 
-    const result = await useCase.execute(
-      { entity_id: escrow.publicId, tx_hash: TX_HASH },
-      USER_ID,
-    );
+    const result = await useCase.execute({ entity_id: escrow.publicId, tx_hash: TX_HASH }, USER_ID);
 
     expect(result.status).toBe(EscrowStatus.PROCESSING);
   });
 
   it('throws 404 when escrow is not found', async () => {
-    await expect(
-      useCase.execute({ entity_id: 'nonexistent', tx_hash: TX_HASH }, USER_ID),
-    ).rejects.toMatchObject({ statusCode: 404 });
+    await expect(useCase.execute({ entity_id: 'nonexistent', tx_hash: TX_HASH }, USER_ID)).rejects.toMatchObject({
+      statusCode: 404,
+    });
   });
 
   it('throws 403 when escrow belongs to a different user', async () => {
     const escrow = makeEscrow(randomUUID());
     await escrowRepo.save(escrow);
 
-    await expect(
-      useCase.execute({ entity_id: escrow.publicId, tx_hash: TX_HASH }, USER_ID),
-    ).rejects.toMatchObject({ statusCode: 403 });
+    await expect(useCase.execute({ entity_id: escrow.publicId, tx_hash: TX_HASH }, USER_ID)).rejects.toMatchObject({
+      statusCode: 403,
+    });
   });
 
   it('throws ApplicationHttpError for missing escrow', async () => {
-    await expect(
-      useCase.execute({ entity_id: 'missing', tx_hash: TX_HASH }, USER_ID),
-    ).rejects.toBeInstanceOf(ApplicationHttpError);
+    await expect(useCase.execute({ entity_id: 'missing', tx_hash: TX_HASH }, USER_ID)).rejects.toBeInstanceOf(
+      ApplicationHttpError,
+    );
   });
 });

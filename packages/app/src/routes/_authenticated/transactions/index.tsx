@@ -45,7 +45,7 @@ export function TransactionsPage() {
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-[var(--text-primary)]">Transactions</h1>
-        <Button onClick={() => showForm ? handleCancel() : setShowForm(true)}>
+        <Button onClick={() => (showForm ? handleCancel() : setShowForm(true))}>
           {showForm ? 'Cancel' : 'New Transaction'}
         </Button>
       </div>
@@ -58,13 +58,9 @@ export function TransactionsPage() {
             <div className="flex flex-col gap-4">
               <TransactionProgress steps={escrowFlow.steps} currentStep={escrowFlow.currentStep} />
               {escrowFlow.inProgress && !escrowFlow.error && (
-                <p className="text-sm text-[var(--text-secondary)] animate-pulse">
-                  Processing... Please wait
-                </p>
+                <p className="text-sm text-[var(--text-secondary)] animate-pulse">Processing... Please wait</p>
               )}
-              {escrowFlow.error && (
-                <p className="text-sm text-[var(--status-error)]">{escrowFlow.error}</p>
-              )}
+              {escrowFlow.error && <p className="text-sm text-[var(--status-error)]">{escrowFlow.error}</p>}
               {escrowFlow.error && (
                 <div className="flex justify-end">
                   <Button onClick={escrowFlow.reset}>Try Again</Button>
