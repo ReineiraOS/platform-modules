@@ -39,7 +39,7 @@ export function TransactionList({ transactions, loading, hasMore, onLoadMore, on
               <th className="pb-3 pr-4 font-medium">Reference</th>
               <th className="pb-3 pr-4 font-medium">Counterparty</th>
               <th className="pb-3 pr-4 font-medium">Amount</th>
-              <th className="pb-3 pr-4 font-medium">Deadline</th>
+              <th className="pb-3 pr-4 font-medium">Due Date</th>
               <th className="pb-3 pr-4 font-medium">Status</th>
               <th className="pb-3 font-medium">Created</th>
             </tr>

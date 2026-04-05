@@ -48,7 +48,7 @@ export function TransactionDetail({ transaction }: TransactionDetailProps) {
             <p className="mt-1 font-medium text-[var(--text-primary)]">{transaction.external_reference || '—'}</p>
           </div>
           <div>
-            <p className="text-sm text-[var(--text-secondary)]">Deadline</p>
+            <p className="text-sm text-[var(--text-secondary)]">Due Date</p>
             <p className="mt-1 font-medium text-[var(--text-primary)]">{formatDate(transaction.deadline)}</p>
           </div>
           <div>
