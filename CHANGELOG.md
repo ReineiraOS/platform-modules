@@ -11,8 +11,7 @@ This project uses [Semantic Versioning](https://semver.org/) and
 
 - Initial release — monorepo scaffold for ReineiraOS application modules
 - Backend package: TypeScript, Clean Architecture, Vercel-ready, DB-agnostic
-- App package: Vue 3, ZeroDev smart accounts, passkey auth
-- Payment-link package: Vue 3, Wagmi, RainbowKit, cross-chain CCTP
+- App package: React 19, ZeroDev smart accounts, passkey auth
 - Platform versioning via `reineira.json`
 
 ### Platform

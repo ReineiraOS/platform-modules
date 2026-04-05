@@ -12,8 +12,8 @@
     "build": "pnpm -r run build",
     "test": "pnpm -r run test",
     "lint": "pnpm -r run lint",
-    "format": "prettier --write '**/*.{ts,js,json,vue,md}'",
-    "format:check": "prettier --check '**/*.{ts,js,json,vue,md}'"
+    "format": "prettier --write '**/*.{ts,tsx,js,jsx,json,md}'",
+    "format:check": "prettier --check '**/*.{ts,tsx,js,jsx,json,md}'"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",

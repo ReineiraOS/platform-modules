@@ -30,10 +30,10 @@ packages/
 
 ### app/ — Platform App
 
-- **Stack:** Vue 3 + TypeScript + Vite + Pinia + TailwindCSS + ZeroDev
+- **Stack:** React 19 + TypeScript + Vite + Zustand + TanStack Router + TailwindCSS + ZeroDev
 - **Wallet:** ZeroDev ERC-4337 smart accounts with passkey authentication
 - **Auth:** WebAuthn passkeys → SIWE signing → backend JWT
-- **Layers:** Views, Router, Stores, Services, Composables, Components, Helpers
+- **Layers:** Pages, Router, Stores, Services, Hooks, Components, Helpers
 
 ## Ecosystem
 

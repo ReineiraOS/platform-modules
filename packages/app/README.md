@@ -1,7 +1,7 @@
 # @reineira-os/modules-app
 
-Platform app starter for ReineiraOS ventures. Vue 3 + TypeScript + Vite + Pinia + TailwindCSS +
-ZeroDev smart accounts.
+Platform app starter for ReineiraOS ventures. React 19 + TypeScript + Vite + Zustand + TanStack Router +
+TailwindCSS + ZeroDev smart accounts.
 
 ## Web3 Integration
 
@@ -14,11 +14,11 @@ ZeroDev smart accounts.
 
 | Layer | Path | Purpose |
 | ----- | ---- | ------- |
-| Views | `src/views/` | AuthorizedView + UnauthorizedView layout |
-| Router | `src/router/` | Routes with meta-based auth, lazy loading |
-| Stores | `src/stores/` | zerodevStore, authStore, loadingStore |
+| Pages | `src/pages/` | Route pages with auth layouts |
+| Router | `src/router/` | TanStack Router, file-based routing |
+| Stores | `src/stores/` | Zustand stores (zerodev, auth, loading) |
 | Services | `src/services/` | Static async classes wrapping Axios |
-| Composables | `src/composables/` | Reusable Vue composables |
+| Hooks | `src/hooks/` | Reusable React hooks |
 | Components | `src/components/` | UI primitives + feature components |
 
 ## Status
