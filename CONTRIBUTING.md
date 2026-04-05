@@ -15,7 +15,6 @@ versioning and changelog generation.
 ```
 feat(backend): add invoice creation endpoint
 fix(app): correct wallet connection flow
-feat(payment-link): add TON chain support
 chore: update shared dependencies
 
 BREAKING CHANGE: restructure backend API routes
@@ -29,7 +28,7 @@ BREAKING CHANGE: restructure backend API routes
 | `chore:`           | No bump                | Tooling, deps                  |
 | `BREAKING CHANGE:` | Major (0.1.0 → 1.0.0) | API change, platform bump      |
 
-Use scope to indicate package: `feat(backend):`, `fix(app):`, `feat(payment-link):`.
+Use scope to indicate package: `feat(backend):`, `fix(app):`.
 
 ## Development Workflow
 
@@ -43,7 +42,7 @@ pnpm install
 git checkout -b feat/my-feature
 
 # 3. Work on a specific package
-cd packages/backend  # or packages/app or packages/payment-link
+cd packages/backend  # or packages/app
 
 # 4. Test
 pnpm test

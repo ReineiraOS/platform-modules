@@ -14,8 +14,7 @@ infrastructure for confidential programmable finance.
 | Package | Stack | Purpose |
 | ------- | ----- | ------- |
 | `packages/backend` | TypeScript, Clean Architecture, Vercel-ready, DB-agnostic | Backend API |
-| `packages/app` | Vue 3, ZeroDev smart accounts, passkey auth | Platform app |
-| `packages/payment-link` | Vue 3, Wagmi, RainbowKit, CCTP v2 | Shareable payment link |
+| `packages/app` | React 19, ZeroDev smart accounts, passkey auth | Platform app |
 
 ## Setup
 
@@ -30,7 +29,6 @@ pnpm install
 ```bash
 pnpm dev:backend          # Backend dev server
 pnpm dev:app              # Platform app (port 4831)
-pnpm dev:payment-link     # Payment link app
 pnpm build                # Build all packages
 pnpm test                 # Test all packages
 ```
@@ -41,7 +39,7 @@ pnpm test                 # Test all packages
 | ---- | ----------------- | -------- |
 | [reineira-atlas](https://github.com/ReineiraOS/reineira-atlas) | Run the startup — strategy, ops, growth, compliance, pitch | 0.1 |
 | [reineira-code](https://github.com/ReineiraOS/reineira-code) | Build smart contracts — resolvers, policies, tests, deploy | 0.1 |
-| **platform-modules** (this repo) | Ship the product — backend, platform app, payment link | 0.1 |
+| **platform-modules** (this repo) | Ship the product — backend, platform app | 0.1 |
 
 All repos declare their platform compatibility in `reineira.json`. When the platform version bumps,
 breaking contract interface changes may require upgrading.

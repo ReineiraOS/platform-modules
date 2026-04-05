@@ -39,7 +39,7 @@ packages/
 
 | Repo                 | Purpose                                                   |
 | -------------------- | --------------------------------------------------------- |
-| **platform-modules** (this repo) | App starters — backend, platform app, payment link |
+| **platform-modules** (this repo) | App starters — backend, platform app |
 | **reineira-atlas**   | Startup OS — strategy, ops, growth, compliance, pitch     |
 | **reineira-code**    | Smart contracts — resolvers, policies, tests, deploy      |
 
