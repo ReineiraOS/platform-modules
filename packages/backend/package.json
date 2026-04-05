@@ -2,13 +2,38 @@
   "name": "@reineira-os/modules-backend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "Backend starter for ReineiraOS ventures — TypeScript, Clean Architecture, Vercel-ready",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "echo 'TODO: add dev server'",
-    "build": "echo 'TODO: add build'",
-    "test": "echo 'TODO: add tests'",
-    "test:unit": "echo 'TODO: add unit tests'",
-    "lint": "echo 'TODO: add linting'"
+    "dev": "tsx watch --env-file=.env src/dev-server.ts",
+    "build": "tsup && pnpm generate:openapi",
+    "test": "vitest run",
+    "test:unit": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "tsc --noEmit",
+    "generate:openapi": "tsx scripts/generate-openapi.ts"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1",
+    "@vercel/node": "^5",
+    "drizzle-orm": "^0.40",
+    "jose": "^6",
+    "pino": "^9",
+    "siwe": "^2",
+    "viem": "^2",
+    "zod": "^3.24",
+    "zod-openapi": "^4"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "drizzle-kit": "^0.30",
+    "tsup": "^8",
+    "tsx": "^4",
+    "typescript": "^5.7",
+    "vitest": "^3"
   },
   "license": "MIT"
 }
