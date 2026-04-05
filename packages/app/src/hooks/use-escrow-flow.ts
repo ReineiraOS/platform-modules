@@ -7,28 +7,38 @@ import { useAuthStore } from '@/stores/auth-store';
 import { useTransactionStore } from '@/stores/transaction-store';
 import type { CreateTransactionRequest } from '@/services/TransactionService';
 
-const ESCROW_ABI = [{
-  name: 'create',
-  type: 'function',
-  inputs: [
-    { name: 'encryptedOwner', type: 'tuple', components: [
-      { name: 'ctHash', type: 'uint256' },
-      { name: 'securityZone', type: 'uint8' },
-      { name: 'utype', type: 'uint8' },
-      { name: 'signature', type: 'bytes' },
-    ]},
-    { name: 'encryptedAmount', type: 'tuple', components: [
-      { name: 'ctHash', type: 'uint256' },
-      { name: 'securityZone', type: 'uint8' },
-      { name: 'utype', type: 'uint8' },
-      { name: 'signature', type: 'bytes' },
-    ]},
-    { name: 'resolver', type: 'address' },
-    { name: 'resolverData', type: 'bytes' },
-  ],
-  outputs: [],
-  stateMutability: 'nonpayable',
-}] as const;
+const ESCROW_ABI = [
+  {
+    name: 'create',
+    type: 'function',
+    inputs: [
+      {
+        name: 'encryptedOwner',
+        type: 'tuple',
+        components: [
+          { name: 'ctHash', type: 'uint256' },
+          { name: 'securityZone', type: 'uint8' },
+          { name: 'utype', type: 'uint8' },
+          { name: 'signature', type: 'bytes' },
+        ],
+      },
+      {
+        name: 'encryptedAmount',
+        type: 'tuple',
+        components: [
+          { name: 'ctHash', type: 'uint256' },
+          { name: 'securityZone', type: 'uint8' },
+          { name: 'utype', type: 'uint8' },
+          { name: 'signature', type: 'bytes' },
+        ],
+      },
+      { name: 'resolver', type: 'address' },
+      { name: 'resolverData', type: 'bytes' },
+    ],
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+] as const;
 
 export const ESCROW_FLOW_STEPS = [
   { label: 'Creating escrow' },
@@ -64,8 +74,7 @@ export function useEscrowFlow() {
 
     try {
       setCurrentStep(0);
-      const escrow: CreateEscrowClientEncryptResponse =
-        await EscrowService.createWithClientEncrypt(dto);
+      const escrow: CreateEscrowClientEncryptResponse = await EscrowService.createWithClientEncrypt(dto);
       setCreatedPublicId(escrow.public_id);
 
       setCurrentStep(1);
@@ -100,9 +109,7 @@ export function useEscrowFlow() {
         ],
       });
 
-      const txHash = await useWalletStore.getState().sendUserOperation([
-        { to: escrow.contract_address, data },
-      ]);
+      const txHash = await useWalletStore.getState().sendUserOperation([{ to: escrow.contract_address, data }]);
 
       setCurrentStep(3);
       await EscrowService.reportTransaction(txHash, escrow.public_id);

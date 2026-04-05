@@ -31,11 +31,7 @@ export class ErrorResponseDtoFactory {
     };
   }
 
-  static createValidation(
-    title: string,
-    invalidParams: InvalidParam[],
-    detail?: string,
-  ): ValidationErrorResponseDto {
+  static createValidation(title: string, invalidParams: InvalidParam[], detail?: string): ValidationErrorResponseDto {
     return {
       type: 'https://httpstatuses.com/422',
       title,

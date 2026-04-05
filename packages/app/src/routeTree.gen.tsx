@@ -1,9 +1,4 @@
-import {
-  createRootRoute,
-  createRoute,
-  Outlet,
-  redirect,
-} from '@tanstack/react-router';
+import { createRootRoute, createRoute, Outlet, redirect } from '@tanstack/react-router';
 import { useAuthStore } from '@/stores/auth-store';
 import { AppLayout } from '@/components/layout/app-layout';
 import { WalletAuthPage } from '@/routes/index';
@@ -80,7 +75,4 @@ const authenticatedTree = authenticatedRoute.addChildren([
   profileRoute,
 ]);
 
-export const routeTree = rootRoute.addChildren([
-  indexRoute,
-  authenticatedTree,
-]);
+export const routeTree = rootRoute.addChildren([indexRoute, authenticatedTree]);

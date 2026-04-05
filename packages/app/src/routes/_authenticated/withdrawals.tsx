@@ -41,7 +41,7 @@ export function WithdrawalsPage() {
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-[var(--text-primary)]">Withdrawals</h1>
-        <Button onClick={() => showForm ? handleCancel() : setShowForm(true)}>
+        <Button onClick={() => (showForm ? handleCancel() : setShowForm(true))}>
           {showForm ? 'Cancel' : 'New Withdrawal'}
         </Button>
       </div>
@@ -58,9 +58,7 @@ export function WithdrawalsPage() {
                   Estimated amount: {withdrawalFlow.estimatedAmount} USDC
                 </p>
               )}
-              {withdrawalFlow.error && (
-                <p className="text-sm text-[var(--status-error)]">{withdrawalFlow.error}</p>
-              )}
+              {withdrawalFlow.error && <p className="text-sm text-[var(--status-error)]">{withdrawalFlow.error}</p>}
               {withdrawalFlow.error && (
                 <div className="flex justify-end">
                   <Button onClick={withdrawalFlow.reset}>Try Again</Button>

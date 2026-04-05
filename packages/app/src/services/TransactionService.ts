@@ -48,9 +48,11 @@ export class TransactionService {
     return data;
   }
 
-  static async list(
-    params?: { limit?: number; continuation_token?: string; status?: string },
-  ): Promise<PaginatedResponse<TransactionResponse>> {
+  static async list(params?: {
+    limit?: number;
+    continuation_token?: string;
+    status?: string;
+  }): Promise<PaginatedResponse<TransactionResponse>> {
     const { data } = await httpClient.get<PaginatedResponse<TransactionResponse>>('/v1/escrows', { params });
     return data;
   }

@@ -62,9 +62,7 @@ describe('Session', () => {
   describe('getTtlSeconds', () => {
     it('returns approximate seconds remaining for a future session', () => {
       const futureMs = 30_000;
-      const session = new Session(
-        makeSessionParams({ expiresAt: new Date(Date.now() + futureMs) }),
-      );
+      const session = new Session(makeSessionParams({ expiresAt: new Date(Date.now() + futureMs) }));
       const ttl = session.getTtlSeconds();
       expect(ttl).toBeGreaterThan(0);
       expect(ttl).toBeLessThanOrEqual(30);
@@ -81,9 +79,7 @@ describe('Session', () => {
     });
 
     it('never returns a negative value', () => {
-      const session = new Session(
-        makeSessionParams({ expiresAt: new Date(Date.now() - 100_000) }),
-      );
+      const session = new Session(makeSessionParams({ expiresAt: new Date(Date.now() - 100_000) }));
       expect(session.getTtlSeconds()).toBeGreaterThanOrEqual(0);
     });
   });

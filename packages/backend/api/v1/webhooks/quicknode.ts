@@ -37,7 +37,7 @@ const handler = async (req: VercelRequest, res: VercelResponse): Promise<void> =
     }
 
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-    const events: EscrowEventPayload[] = Array.isArray(body) ? body : body.events ?? [];
+    const events: EscrowEventPayload[] = Array.isArray(body) ? body : (body.events ?? []);
 
     await useCase.execute(events);
     sendResponse(res, Response.ok({ processed: events.length }));

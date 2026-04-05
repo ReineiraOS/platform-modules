@@ -65,7 +65,10 @@ describe('useFheStore', () => {
   it('is idempotent when currently initializing', async () => {
     let resolveInit!: () => void;
     mockInitialize.mockImplementationOnce(
-      () => new Promise<void>((resolve) => { resolveInit = resolve; }),
+      () =>
+        new Promise<void>((resolve) => {
+          resolveInit = resolve;
+        }),
     );
 
     const first = useFheStore.getState().initialize('0xabc');

@@ -1,6 +1,9 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { CreateEscrowDtoSchema } from '../../../src/application/dto/escrow/create-escrow.dto.js';
-import { CreateEscrowUseCase, type EncryptionMode } from '../../../src/application/use-case/escrow/create-escrow.use-case.js';
+import {
+  CreateEscrowUseCase,
+  type EncryptionMode,
+} from '../../../src/application/use-case/escrow/create-escrow.use-case.js';
 import { GetEscrowsUseCase } from '../../../src/application/use-case/escrow/get-escrows.use-case.js';
 import { container } from '../../../src/infrastructure/container.js';
 import { createHandler, createGetHandler, sendResponse } from '../../../src/interface/handler-factory.js';
@@ -15,9 +18,10 @@ const postHandler = createHandler({
   operationName: 'CreateEscrow',
   schema: CreateEscrowDtoSchema,
   execute: async (dto, req, authPayload) => {
-    const encryptionMode = (req.headers['x-encryption-mode'] as string)?.toLowerCase() === 'client'
-      ? 'client' as EncryptionMode
-      : 'server' as EncryptionMode;
+    const encryptionMode =
+      (req.headers['x-encryption-mode'] as string)?.toLowerCase() === 'client'
+        ? ('client' as EncryptionMode)
+        : ('server' as EncryptionMode);
     const result = await createEscrowUseCase.execute(
       dto,
       authPayload!.userId,

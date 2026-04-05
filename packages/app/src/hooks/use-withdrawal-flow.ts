@@ -1,31 +1,31 @@
 import { useCallback, useState } from 'react';
 import { encodeFunctionData } from 'viem';
-import {
-  WithdrawalService,
-  type CreateWithdrawalRequest,
-  type WithdrawalCall,
-} from '@/services/WithdrawalService';
+import { WithdrawalService, type CreateWithdrawalRequest, type WithdrawalCall } from '@/services/WithdrawalService';
 import { useWalletStore } from '@/stores/wallet-store';
 import { useWithdrawalStore } from '@/stores/withdrawal-store';
 
-const REDEEM_ABI = [{
-  name: 'redeemMultiple',
-  type: 'function',
-  inputs: [{ name: 'escrowIds', type: 'uint256[]' }],
-  outputs: [],
-  stateMutability: 'nonpayable',
-}] as const;
+const REDEEM_ABI = [
+  {
+    name: 'redeemMultiple',
+    type: 'function',
+    inputs: [{ name: 'escrowIds', type: 'uint256[]' }],
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+] as const;
 
-const UNWRAP_ABI = [{
-  name: 'unwrap',
-  type: 'function',
-  inputs: [
-    { name: 'to', type: 'address' },
-    { name: 'value', type: 'uint64' },
-  ],
-  outputs: [],
-  stateMutability: 'nonpayable',
-}] as const;
+const UNWRAP_ABI = [
+  {
+    name: 'unwrap',
+    type: 'function',
+    inputs: [
+      { name: 'to', type: 'address' },
+      { name: 'value', type: 'uint64' },
+    ],
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+] as const;
 
 const ABI_MAP: Record<string, typeof REDEEM_ABI | typeof UNWRAP_ABI> = {
   redeemMultiple: REDEEM_ABI,
@@ -53,7 +53,9 @@ function encodeWithdrawalCall(call: WithdrawalCall): { to: string; data: string 
 
   return {
     to: call.contract_address,
-    data: encodeFunctionData({ abi, functionName: functionName as 'redeemMultiple' | 'unwrap', args } as Parameters<typeof encodeFunctionData>[0]),
+    data: encodeFunctionData({ abi, functionName: functionName as 'redeemMultiple' | 'unwrap', args } as Parameters<
+      typeof encodeFunctionData
+    >[0]),
   };
 }
 

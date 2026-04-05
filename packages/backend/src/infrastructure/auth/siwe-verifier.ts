@@ -7,10 +7,7 @@ import { getLogger } from '../../core/logger.js';
 const logger = getLogger('SiweVerifier');
 
 export class SiweVerifier {
-  async verify(
-    message: string,
-    signature: string,
-  ): Promise<{ address: string; valid: boolean }> {
+  async verify(message: string, signature: string): Promise<{ address: string; valid: boolean }> {
     try {
       const siweMessage = new SiweMessage(message);
       const address = siweMessage.address as `0x${string}`;

@@ -3,10 +3,7 @@ import type {
   FindWithdrawalsByUserIdOptions,
 } from '../../../domain/withdrawal/repository/withdrawal.repository.js';
 import type { Withdrawal } from '../../../domain/withdrawal/model/withdrawal.js';
-import type {
-  WithdrawalResponse,
-  PaginatedWithdrawalsResponse,
-} from '../../dto/withdrawal/withdrawal-response.dto.js';
+import type { WithdrawalResponse, PaginatedWithdrawalsResponse } from '../../dto/withdrawal/withdrawal-response.dto.js';
 
 const DEFAULT_LIMIT = 20;
 

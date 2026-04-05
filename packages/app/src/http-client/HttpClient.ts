@@ -37,10 +37,9 @@ class HttpClient {
           try {
             const refreshToken = localStorage.getItem('refresh_token');
             if (!refreshToken) throw new Error('No refresh token');
-            const { data } = await axios.post(
-              `${this.client.defaults.baseURL}/v1/auth/tokens/refresh`,
-              { refresh_token: refreshToken },
-            );
+            const { data } = await axios.post(`${this.client.defaults.baseURL}/v1/auth/tokens/refresh`, {
+              refresh_token: refreshToken,
+            });
             localStorage.setItem('access_token', data.access_token);
             localStorage.setItem('refresh_token', data.refresh_token);
             this.refreshSubscribers.forEach((cb) => cb(data.access_token));

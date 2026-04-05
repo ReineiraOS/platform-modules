@@ -1,7 +1,10 @@
 import type { IEscrowRepository } from '../../../domain/escrow/repository/escrow.repository.js';
 import type { IEscrowEventRepository } from '../../../domain/escrow/events/repository/escrow-event.repository.js';
 import { ApplicationHttpError } from '../../../core/errors.js';
-import type { ReportEscrowTransactionDto, ReportTransactionResponse } from '../../dto/transaction/report-transaction.dto.js';
+import type {
+  ReportEscrowTransactionDto,
+  ReportTransactionResponse,
+} from '../../dto/transaction/report-transaction.dto.js';
 
 export class ReportEscrowTransactionUseCase {
   constructor(
@@ -9,10 +12,7 @@ export class ReportEscrowTransactionUseCase {
     private readonly escrowEventRepository: IEscrowEventRepository,
   ) {}
 
-  async execute(
-    dto: ReportEscrowTransactionDto,
-    userId: string,
-  ): Promise<ReportTransactionResponse> {
+  async execute(dto: ReportEscrowTransactionDto, userId: string): Promise<ReportTransactionResponse> {
     const escrow = await this.escrowRepository.findByPublicId(dto.entity_id);
     if (!escrow) {
       throw ApplicationHttpError.notFound('Escrow not found');

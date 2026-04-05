@@ -13,10 +13,22 @@ interface TransactionListProps {
 
 function statusVariant(status: string): 'success' | 'warning' | 'error' | 'info' | 'default' {
   const map: Record<string, 'success' | 'warning' | 'error' | 'info' | 'default'> = {
-    SETTLED: 'success', COMPLETED: 'success', REDEEMED: 'success',
-    PENDING: 'warning', PENDING_REDEEM: 'warning', PENDING_BRIDGE: 'warning', PROCESSING: 'warning', BRIDGING: 'warning',
-    ISSUED: 'info', DRAFT: 'info', CREATED: 'info',
-    FAILED: 'error', CANCELED: 'error', CANCELLED: 'error', EXPIRED: 'error', OVERDUE: 'error',
+    SETTLED: 'success',
+    COMPLETED: 'success',
+    REDEEMED: 'success',
+    PENDING: 'warning',
+    PENDING_REDEEM: 'warning',
+    PENDING_BRIDGE: 'warning',
+    PROCESSING: 'warning',
+    BRIDGING: 'warning',
+    ISSUED: 'info',
+    DRAFT: 'info',
+    CREATED: 'info',
+    FAILED: 'error',
+    CANCELED: 'error',
+    CANCELLED: 'error',
+    EXPIRED: 'error',
+    OVERDUE: 'error',
   };
   return map[status] ?? 'default';
 }
@@ -51,9 +63,13 @@ export function TransactionList({ transactions, loading, hasMore, onLoadMore, on
                 className="border-b border-[var(--border-dark)] last:border-0 cursor-pointer hover:bg-[var(--background-secondary)] transition-colors"
                 onClick={() => onSelect?.(transaction)}
               >
-                <td className="py-3 pr-4 font-medium text-[var(--text-primary)]">{transaction.external_reference || '—'}</td>
+                <td className="py-3 pr-4 font-medium text-[var(--text-primary)]">
+                  {transaction.external_reference || '—'}
+                </td>
                 <td className="py-3 pr-4 text-[var(--text-secondary)]">{transaction.counterparty}</td>
-                <td className="py-3 pr-4 font-medium text-[var(--text-primary)]">{formatAmount(transaction.amount)} USDC</td>
+                <td className="py-3 pr-4 font-medium text-[var(--text-primary)]">
+                  {formatAmount(transaction.amount)} USDC
+                </td>
                 <td className="py-3 pr-4 text-[var(--text-secondary)]">{formatDate(transaction.deadline)}</td>
                 <td className="py-3 pr-4">
                   <Badge variant={statusVariant(transaction.status)}>{transaction.status}</Badge>
@@ -74,9 +90,7 @@ export function TransactionList({ transactions, loading, hasMore, onLoadMore, on
       )}
 
       {!loading && transactions.length === 0 && (
-        <p className="py-8 text-center text-sm text-[var(--text-secondary)]">
-          No transactions yet
-        </p>
+        <p className="py-8 text-center text-sm text-[var(--text-secondary)]">No transactions yet</p>
       )}
 
       {hasMore && (

@@ -68,12 +68,7 @@ describe('CreateEscrowUseCase', () => {
   });
 
   it('returns encrypted abi_parameters in server mode', async () => {
-    const result = (await useCase.execute(
-      makeCreateEscrowDto(),
-      USER_ID,
-      WALLET,
-      'server',
-    )) as CreateEscrowResponse;
+    const result = (await useCase.execute(makeCreateEscrowDto(), USER_ID, WALLET, 'server')) as CreateEscrowResponse;
 
     expect(result.abi_parameters).toHaveProperty('encrypted_owner');
     expect(result.abi_parameters).toHaveProperty('encrypted_amount');
@@ -138,11 +133,7 @@ describe('CreateEscrowUseCase', () => {
   });
 
   it('saves escrow to repository with PENDING status', async () => {
-    const result = (await useCase.execute(
-      makeCreateEscrowDto(),
-      USER_ID,
-      WALLET,
-    )) as CreateEscrowResponse;
+    const result = (await useCase.execute(makeCreateEscrowDto(), USER_ID, WALLET)) as CreateEscrowResponse;
 
     const saved = await escrowRepo.findByPublicId(result.public_id);
     expect(saved).not.toBeNull();
@@ -150,11 +141,7 @@ describe('CreateEscrowUseCase', () => {
   });
 
   it('saves escrow to repository with correct userId', async () => {
-    const result = (await useCase.execute(
-      makeCreateEscrowDto(),
-      USER_ID,
-      WALLET,
-    )) as CreateEscrowResponse;
+    const result = (await useCase.execute(makeCreateEscrowDto(), USER_ID, WALLET)) as CreateEscrowResponse;
 
     const saved = await escrowRepo.findByPublicId(result.public_id);
     expect(saved!.userId).toBe(USER_ID);
@@ -171,12 +158,7 @@ describe('CreateEscrowUseCase', () => {
   });
 
   it('returns ESCROW_CONTRACT_ADDRESS as contract_address in server mode', async () => {
-    const result = (await useCase.execute(
-      makeCreateEscrowDto(),
-      USER_ID,
-      WALLET,
-      'server',
-    )) as CreateEscrowResponse;
+    const result = (await useCase.execute(makeCreateEscrowDto(), USER_ID, WALLET, 'server')) as CreateEscrowResponse;
 
     expect(result.contract_address).toBe(ESCROW_CONTRACT);
   });
@@ -193,11 +175,7 @@ describe('CreateEscrowUseCase', () => {
   });
 
   it('returns the correct abi_function_signature', async () => {
-    const result = (await useCase.execute(
-      makeCreateEscrowDto(),
-      USER_ID,
-      WALLET,
-    )) as CreateEscrowResponse;
+    const result = (await useCase.execute(makeCreateEscrowDto(), USER_ID, WALLET)) as CreateEscrowResponse;
 
     expect(result.abi_function_signature).toBe(
       'createEscrow((bytes,int32,uint8,bytes),(bytes,int32,uint8,bytes),address,bytes)',
@@ -205,12 +183,7 @@ describe('CreateEscrowUseCase', () => {
   });
 
   it('encrypted_owner and encrypted_amount are tuples of correct shape', async () => {
-    const result = (await useCase.execute(
-      makeCreateEscrowDto(),
-      USER_ID,
-      WALLET,
-      'server',
-    )) as CreateEscrowResponse;
+    const result = (await useCase.execute(makeCreateEscrowDto(), USER_ID, WALLET, 'server')) as CreateEscrowResponse;
 
     const { encrypted_owner, encrypted_amount } = result.abi_parameters;
 

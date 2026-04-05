@@ -19,10 +19,7 @@ export class MemoryEscrowRepository implements IEscrowRepository {
     return null;
   }
 
-  async findByUserId(
-    userId: string,
-    options?: FindByUserIdOptions,
-  ): Promise<PaginatedResult<Escrow>> {
+  async findByUserId(userId: string, options?: FindByUserIdOptions): Promise<PaginatedResult<Escrow>> {
     let items = [...this.store.values()]
       .filter((i) => i.userId === userId)
       .filter((i) => (options?.status ? i.status === options.status : true))

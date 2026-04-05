@@ -23,9 +23,7 @@ export function BalanceCard() {
           ) : (
             <p className="mt-1 text-3xl font-bold text-[var(--text-primary)]">
               {balance?.formatted_balance ?? '0.00'}
-              <span className="text-lg font-normal text-[var(--text-secondary)]">
-                {' '}{balance?.currency ?? 'USDC'}
-              </span>
+              <span className="text-lg font-normal text-[var(--text-secondary)]"> {balance?.currency ?? 'USDC'}</span>
             </p>
           )}
         </div>

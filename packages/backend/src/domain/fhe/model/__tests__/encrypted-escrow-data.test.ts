@@ -13,9 +13,7 @@ function makeEncryptedValue(userAddress: string, data = '0xdata'): EncryptedValu
   });
 }
 
-function makeEncryptedEscrowDataParams(
-  overrides?: Partial<EncryptedEscrowDataParams>,
-): EncryptedEscrowDataParams {
+function makeEncryptedEscrowDataParams(overrides?: Partial<EncryptedEscrowDataParams>): EncryptedEscrowDataParams {
   const userAddress = '0xabcdef1234567890abcdef1234567890abcdef12';
   return {
     encryptedAmount: makeEncryptedValue(userAddress, '0xamount'),
@@ -36,16 +34,12 @@ describe('EncryptedEscrowData', () => {
     });
 
     it('assigns optional plaintextAmount when provided', () => {
-      const eid = new EncryptedEscrowData(
-        makeEncryptedEscrowDataParams({ plaintextAmount: BigInt(1000) }),
-      );
+      const eid = new EncryptedEscrowData(makeEncryptedEscrowDataParams({ plaintextAmount: BigInt(1000) }));
       expect(eid.plaintextAmount).toBe(BigInt(1000));
     });
 
     it('assigns optional plaintextOwner when provided', () => {
-      const eid = new EncryptedEscrowData(
-        makeEncryptedEscrowDataParams({ plaintextOwner: '0xowner' }),
-      );
+      const eid = new EncryptedEscrowData(makeEncryptedEscrowDataParams({ plaintextOwner: '0xowner' }));
       expect(eid.plaintextOwner).toBe('0xowner');
     });
 

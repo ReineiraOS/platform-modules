@@ -1,9 +1,5 @@
 import { create } from 'zustand';
-import {
-  WithdrawalService,
-  type WithdrawalResponse,
-  type CreateWithdrawalRequest,
-} from '@/services/WithdrawalService';
+import { WithdrawalService, type WithdrawalResponse, type CreateWithdrawalRequest } from '@/services/WithdrawalService';
 
 interface WithdrawalState {
   withdrawals: WithdrawalResponse[];

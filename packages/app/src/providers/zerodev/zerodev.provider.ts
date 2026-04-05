@@ -131,11 +131,11 @@ export class ZeroDevProvider implements IWalletProvider {
     if (!this.kernelClient?.account) throw new Error('Not connected');
 
     const callData = await this.kernelClient.account.encodeCalls(
-      calls.map(c => ({
+      calls.map((c) => ({
         to: c.to as Hex,
         data: c.data as Hex,
         value: c.value ?? 0n,
-      }))
+      })),
     );
 
     const userOpHash = await this.kernelClient.sendUserOperation({ callData });
