@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+:root {
+  --blue-3: rgba(59, 139, 255, 0.03);
+  --blue-4: rgba(59, 139, 255, 0.04);
+  --blue-5: rgba(59, 139, 255, 0.05);
+  --blue-6: rgba(59, 139, 255, 0.06);
+  --blue-7: rgba(59, 139, 255, 0.07);
+  --blue-8: rgba(59, 139, 255, 0.08);
+  --blue-10: rgba(59, 139, 255, 0.1);
+  --blue-12: rgba(59, 139, 255, 0.12);
+  --blue-14: rgba(59, 139, 255, 0.14);
+  --blue-15: rgba(59, 139, 255, 0.15);
+  --blue-18: rgba(59, 139, 255, 0.18);
+  --blue-20: rgba(59, 139, 255, 0.2);
+  --blue-25: rgba(59, 139, 255, 0.25);
+  --blue-30: rgba(59, 139, 255, 0.3);
+  --blue-35: rgba(59, 139, 255, 0.35);
+  --blue-40: rgba(59, 139, 255, 0.4);
+  --blue-60: rgba(59, 139, 255, 0.6);
+  --blue-85: rgba(59, 139, 255, 0.85);
+
+  --steel-4: rgba(109, 142, 186, 0.04);
+  --steel-5: rgba(109, 142, 186, 0.05);
+  --steel-6: rgba(109, 142, 186, 0.06);
+  --steel-7: rgba(109, 142, 186, 0.07);
+  --steel-8: rgba(109, 142, 186, 0.08);
+  --steel-10: rgba(109, 142, 186, 0.1);
+  --steel-12: rgba(109, 142, 186, 0.12);
+  --steel-14: rgba(109, 142, 186, 0.14);
+  --steel-15: rgba(109, 142, 186, 0.15);
+  --steel-18: rgba(109, 142, 186, 0.18);
+  --steel-20: rgba(109, 142, 186, 0.2);
+  --steel-25: rgba(109, 142, 186, 0.25);
+  --steel-30: rgba(109, 142, 186, 0.3);
+  --steel-80: rgba(109, 142, 186, 0.8);
+
+  --surface-void: #000000;
+  --surface-deep: #060a0e;
+  --surface-1: #080c10;
+  --surface-2: #0a0f14;
+  --surface-3: #0b0d10;
+  --surface-4: #0f1216;
+  --surface-base: #0d1117;
+  --surface-raised: #1a1e28;
+  --surface-panel: #242830;
+
+  --text-primary: #d9d9d9;
+  --text-secondary: #bfbfbf;
+  --text-muted: #999999;
+  --text-dim: #8c8c8c;
+  --text-subtle: rgba(140, 140, 140, 0.6);
+  --text-faint: rgba(140, 140, 140, 0.5);
+  --text-ghost: rgba(140, 140, 140, 0.45);
+
+  --accent-blue: #3b8bff;
+  --accent-blue-hover: #5da3ff;
+  --accent-blue-dim: var(--blue-12);
+  --accent-steel: #6d8eba;
+  --accent-steel-hover: #8ba8d0;
+
+  --background: var(--surface-base);
+  --foreground: var(--text-primary);
+  --background-secondary: var(--surface-raised);
+
+  --border-dark: var(--steel-12);
+  --border-dark-hover: var(--steel-25);
+
+  --accent-blue-bg: var(--blue-8);
+  --accent-blue-bg-hover: var(--blue-14);
+
+  --status-success: #10b981;
+  --status-warning: #f59e0b;
+  --status-error: #ef4444;
+  --status-info: var(--accent-blue);
+
+  --blur-sm: 6px;
+  --blur-md: 12px;
+  --blur-lg: 20px;
+  --blur-xl: 24px;
+
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: var(--steel-12);
+  --glass-blur: var(--blur-xl);
+
+  --table-header-bg: var(--steel-5);
+  --table-header-border: var(--steel-10);
+  --table-row-border: var(--steel-7);
+  --table-row-hover: var(--steel-4);
+
+  --radius-minimal: 4px;
+  --radius-subtle: 8px;
+  --radius-button: 10px;
+  --radius-input: 10px;
+  --radius-block: 16px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --shadow-blue-glow: 0 0 60px var(--blue-6);
+  --shadow-dark-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-dark-md: 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-dark-lg: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+  --shadow-dark-xl: 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-default: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+
+  --header-height: 64px;
+  --content-max-width: 1280px;
+
+  --z-base: 0;
+  --z-sticky: 10;
+  --z-header: 50;
+  --z-modal: 100;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  --opacity-high: 0.85;
+  --opacity-medium: 0.7;
+  --opacity-low: 0.5;
+  --opacity-subtle: 0.4;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
