@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:unit": "vitest run",
     "test:watch": "vitest",
-    "lint": "tsc --noEmit",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
     "generate:types": "openapi-typescript ../backend/openapi.json -o src/generated/api-types.ts"
   },
   "dependencies": {

@@ -2,6 +2,7 @@
   "name": "@reineira-os/modules",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "Plug-and-play application starters for ReineiraOS ventures",
   "reineira": {
     "platform": "0.1"
@@ -11,19 +12,25 @@
     "dev:app": "pnpm --filter @reineira-os/modules-app run dev",
     "build": "pnpm -r run build",
     "test": "pnpm -r run test",
-    "lint": "pnpm -r run lint",
+    "lint": "eslint . && pnpm -r run typecheck",
     "format": "prettier --write '**/*.{ts,tsx,js,jsx,json,md}'",
     "format:check": "prettier --check '**/*.{ts,tsx,js,jsx,json,md}'"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^12.0.6",
     "@semantic-release/release-notes-generator": "^14.1.0",
     "conventional-changelog-conventionalcommits": "^9.3.0",
+    "eslint": "^10.2.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
     "prettier": "^3.4.0",
-    "semantic-release": "^25.0.3"
+    "semantic-release": "^25.0.3",
+    "typescript-eslint": "^8.58.0"
   },
   "packageManager": "pnpm@10.30.3",
   "engines": {
