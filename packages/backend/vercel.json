@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+  "installCommand": "pnpm install",
   "buildCommand": "pnpm run build",
   "rewrites": [{ "source": "/api/(.*)", "destination": "/api/$1" }],
   "headers": [
