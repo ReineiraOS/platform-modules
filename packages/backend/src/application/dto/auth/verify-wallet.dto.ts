@@ -6,6 +6,7 @@ export const VerifyWalletDtoSchema = z.object({
   message: z.string().min(1),
   signature: z.string().regex(/^0x/, 'Signature must start with 0x'),
   email: z.string().email().optional(),
+  wallet_provider: z.string().min(1).max(64).optional(),
 });
 export type VerifyWalletDto = z.infer<typeof VerifyWalletDtoSchema>;
 

@@ -37,7 +37,7 @@ export class VerifyWalletUseCase {
       user = new User({
         id: randomUUID(),
         walletAddress: dto.wallet_address,
-        walletProvider: 'walletconnect',
+        walletProvider: dto.wallet_provider ?? 'unknown',
         email: dto.email,
         createdAt: new Date(),
       });
