@@ -6,7 +6,9 @@ export type WalletProviderType = 'zerodev';
 
 const DEFAULT_PROVIDER_TYPE: WalletProviderType = 'zerodev';
 
-function createProvider(type: WalletProviderType): IWalletProvider & { register?: (username: string) => Promise<string> } {
+function createProvider(
+  type: WalletProviderType,
+): IWalletProvider & { register?: (username: string) => Promise<string> } {
   switch (type) {
     case 'zerodev':
       return new ZeroDevProvider();
