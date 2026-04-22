@@ -20,9 +20,7 @@
     "/auth/wallet/nonce": {
       "post": {
         "operationId": "requestNonce",
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "summary": "Request authentication nonce",
         "security": [],
         "requestBody": {
@@ -36,9 +34,7 @@
                     "pattern": "^0x[a-fA-F0-9]{40}$"
                   }
                 },
-                "required": [
-                  "wallet_address"
-                ]
+                "required": ["wallet_address"]
               }
             }
           }
@@ -55,9 +51,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "nonce"
-                  ]
+                  "required": ["nonce"]
                 }
               }
             }
@@ -79,11 +73,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -94,9 +84,7 @@
     "/auth/wallet/verify": {
       "post": {
         "operationId": "verifyWallet",
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "summary": "Verify wallet signature",
         "security": [],
         "requestBody": {
@@ -122,11 +110,7 @@
                     "format": "email"
                   }
                 },
-                "required": [
-                  "wallet_address",
-                  "message",
-                  "signature"
-                ]
+                "required": ["wallet_address", "message", "signature"]
               }
             }
           }
@@ -153,12 +137,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "access_token",
-                    "refresh_token",
-                    "token_type",
-                    "expires_in"
-                  ]
+                  "required": ["access_token", "refresh_token", "token_type", "expires_in"]
                 }
               }
             }
@@ -180,11 +159,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -206,11 +181,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -221,9 +192,7 @@
     "/auth/tokens/refresh": {
       "post": {
         "operationId": "refreshToken",
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "summary": "Refresh access token",
         "security": [],
         "requestBody": {
@@ -237,9 +206,7 @@
                     "minLength": 1
                   }
                 },
-                "required": [
-                  "refresh_token"
-                ]
+                "required": ["refresh_token"]
               }
             }
           }
@@ -266,12 +233,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "access_token",
-                    "refresh_token",
-                    "token_type",
-                    "expires_in"
-                  ]
+                  "required": ["access_token", "refresh_token", "token_type", "expires_in"]
                 }
               }
             }
@@ -293,11 +255,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -308,9 +266,7 @@
     "/auth/tokens": {
       "post": {
         "operationId": "logout",
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "summary": "Revoke tokens (logout)",
         "security": [
           {
@@ -338,11 +294,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -353,9 +305,7 @@
     "/escrows": {
       "post": {
         "operationId": "createEscrow",
-        "tags": [
-          "Escrow"
-        ],
+        "tags": ["Escrow"],
         "summary": "Create a new escrow",
         "security": [
           {
@@ -393,31 +343,21 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "enum": [
-                          "fiat",
-                          "crypto"
-                        ]
+                        "enum": ["fiat", "crypto"]
                       },
                       "code": {
                         "type": "string",
                         "minLength": 1
                       }
                     },
-                    "required": [
-                      "type",
-                      "code"
-                    ]
+                    "required": ["type", "code"]
                   },
                   "metadata": {
                     "type": "object",
                     "additionalProperties": {}
                   }
                 },
-                "required": [
-                  "type",
-                  "amount",
-                  "currency"
-                ]
+                "required": ["type", "amount", "currency"]
               }
             }
           }
@@ -487,20 +427,10 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "encrypted_owner",
-                        "encrypted_amount",
-                        "resolver",
-                        "resolver_data"
-                      ]
+                      "required": ["encrypted_owner", "encrypted_amount", "resolver", "resolver_data"]
                     }
                   },
-                  "required": [
-                    "public_id",
-                    "contract_address",
-                    "abi_function_signature",
-                    "abi_parameters"
-                  ]
+                  "required": ["public_id", "contract_address", "abi_function_signature", "abi_parameters"]
                 }
               }
             }
@@ -522,11 +452,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -548,11 +474,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -561,9 +483,7 @@
       },
       "get": {
         "operationId": "listEscrows",
-        "tags": [
-          "Escrow"
-        ],
+        "tags": ["Escrow"],
         "summary": "List escrows for current user",
         "security": [
           {
@@ -631,19 +551,13 @@
                             "properties": {
                               "type": {
                                 "type": "string",
-                                "enum": [
-                                  "fiat",
-                                  "crypto"
-                                ]
+                                "enum": ["fiat", "crypto"]
                               },
                               "code": {
                                 "type": "string"
                               }
                             },
-                            "required": [
-                              "type",
-                              "code"
-                            ]
+                            "required": ["type", "code"]
                           },
                           "status": {
                             "type": "string"
@@ -662,14 +576,7 @@
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "public_id",
-                          "type",
-                          "amount",
-                          "currency",
-                          "status",
-                          "created_at"
-                        ]
+                        "required": ["public_id", "type", "amount", "currency", "status", "created_at"]
                       }
                     },
                     "continuation_token": {
@@ -682,11 +589,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "items",
-                    "has_more",
-                    "limit"
-                  ]
+                  "required": ["items", "has_more", "limit"]
                 }
               }
             }
@@ -708,11 +611,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -723,9 +622,7 @@
     "/escrows/{publicId}": {
       "get": {
         "operationId": "getEscrow",
-        "tags": [
-          "Escrow"
-        ],
+        "tags": ["Escrow"],
         "summary": "Get escrow by public ID",
         "security": [
           {
@@ -773,19 +670,13 @@
                       "properties": {
                         "type": {
                           "type": "string",
-                          "enum": [
-                            "fiat",
-                            "crypto"
-                          ]
+                          "enum": ["fiat", "crypto"]
                         },
                         "code": {
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "type",
-                        "code"
-                      ]
+                      "required": ["type", "code"]
                     },
                     "status": {
                       "type": "string"
@@ -804,14 +695,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "public_id",
-                    "type",
-                    "amount",
-                    "currency",
-                    "status",
-                    "created_at"
-                  ]
+                  "required": ["public_id", "type", "amount", "currency", "status", "created_at"]
                 }
               }
             }
@@ -833,11 +717,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -859,11 +739,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -874,9 +750,7 @@
     "/public/escrows/{publicId}": {
       "get": {
         "operationId": "getPublicEscrow",
-        "tags": [
-          "Escrow"
-        ],
+        "tags": ["Escrow"],
         "summary": "Get public escrow details (no auth required)",
         "security": [],
         "parameters": [
@@ -923,19 +797,13 @@
                       "properties": {
                         "type": {
                           "type": "string",
-                          "enum": [
-                            "fiat",
-                            "crypto"
-                          ]
+                          "enum": ["fiat", "crypto"]
                         },
                         "code": {
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "type",
-                        "code"
-                      ]
+                      "required": ["type", "code"]
                     },
                     "status": {
                       "type": "string"
@@ -977,11 +845,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -992,9 +856,7 @@
     "/withdrawals": {
       "post": {
         "operationId": "createWithdrawal",
-        "tags": [
-          "Withdrawal"
-        ],
+        "tags": ["Withdrawal"],
         "summary": "Create a new withdrawal",
         "security": [
           {
@@ -1017,22 +879,14 @@
                   },
                   "destination_chain": {
                     "type": "string",
-                    "enum": [
-                      "BASE",
-                      "ETH",
-                      "POLYGON"
-                    ]
+                    "enum": ["BASE", "ETH", "POLYGON"]
                   },
                   "recipient_address": {
                     "type": "string",
                     "pattern": "^0x[a-fA-F0-9]{40}$"
                   }
                 },
-                "required": [
-                  "escrow_ids",
-                  "destination_chain",
-                  "recipient_address"
-                ]
+                "required": ["escrow_ids", "destination_chain", "recipient_address"]
               }
             }
           }
@@ -1064,11 +918,7 @@
                             "additionalProperties": {}
                           }
                         },
-                        "required": [
-                          "contract_address",
-                          "abi_function_signature",
-                          "abi_parameters"
-                        ]
+                        "required": ["contract_address", "abi_function_signature", "abi_parameters"]
                       }
                     },
                     "status": {
@@ -1078,12 +928,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "public_id",
-                    "calls",
-                    "status",
-                    "estimated_amount"
-                  ]
+                  "required": ["public_id", "calls", "status", "estimated_amount"]
                 }
               }
             }
@@ -1105,11 +950,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1131,11 +972,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1144,9 +981,7 @@
       },
       "get": {
         "operationId": "listWithdrawals",
-        "tags": [
-          "Withdrawal"
-        ],
+        "tags": ["Withdrawal"],
         "summary": "List withdrawals for current user",
         "security": [
           {
@@ -1262,11 +1097,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "items",
-                    "has_more",
-                    "limit"
-                  ]
+                  "required": ["items", "has_more", "limit"]
                 }
               }
             }
@@ -1288,11 +1119,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1303,9 +1130,7 @@
     "/withdrawals/{publicId}": {
       "get": {
         "operationId": "getWithdrawal",
-        "tags": [
-          "Withdrawal"
-        ],
+        "tags": ["Withdrawal"],
         "summary": "Get withdrawal by public ID",
         "security": [
           {
@@ -1410,11 +1235,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1436,11 +1257,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1451,9 +1268,7 @@
     "/withdrawals/{publicId}/bridge-readiness": {
       "get": {
         "operationId": "checkBridgeReadiness",
-        "tags": [
-          "Withdrawal"
-        ],
+        "tags": ["Withdrawal"],
         "summary": "Check if withdrawal is ready for bridging",
         "security": [
           {
@@ -1488,11 +1303,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "public_id",
-                    "ready",
-                    "status"
-                  ]
+                  "required": ["public_id", "ready", "status"]
                 }
               }
             }
@@ -1514,11 +1325,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1540,11 +1347,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1555,9 +1358,7 @@
     "/withdrawals/{publicId}/bridge-challenge": {
       "post": {
         "operationId": "createBridgeChallenge",
-        "tags": [
-          "Withdrawal"
-        ],
+        "tags": ["Withdrawal"],
         "summary": "Initiate bridge challenge for withdrawal",
         "security": [
           {
@@ -1592,10 +1393,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "public_id",
-                    "status"
-                  ]
+                  "required": ["public_id", "status"]
                 }
               }
             }
@@ -1617,11 +1415,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1643,11 +1437,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1669,11 +1459,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1684,9 +1470,7 @@
     "/users/me": {
       "get": {
         "operationId": "getCurrentUser",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Get current authenticated user",
         "security": [
           {
@@ -1717,12 +1501,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "id",
-                    "wallet_address",
-                    "wallet_provider",
-                    "created_at"
-                  ]
+                  "required": ["id", "wallet_address", "wallet_provider", "created_at"]
                 }
               }
             }
@@ -1744,11 +1523,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1759,9 +1534,7 @@
     "/balance": {
       "get": {
         "operationId": "getBalance",
-        "tags": [
-          "Balance"
-        ],
+        "tags": ["Balance"],
         "summary": "Get wallet balance",
         "security": [
           {
@@ -1792,13 +1565,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "wallet_address",
-                    "balance",
-                    "formatted_balance",
-                    "currency",
-                    "chain_id"
-                  ]
+                  "required": ["wallet_address", "balance", "formatted_balance", "currency", "chain_id"]
                 }
               }
             }
@@ -1820,11 +1587,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1835,9 +1598,7 @@
     "/business-profiles": {
       "post": {
         "operationId": "createBusinessProfile",
-        "tags": [
-          "Business Profile"
-        ],
+        "tags": ["Business Profile"],
         "summary": "Create a business profile",
         "security": [
           {
@@ -1857,10 +1618,7 @@
                   },
                   "business_type": {
                     "type": "string",
-                    "enum": [
-                      "RETAIL",
-                      "SERVICE"
-                    ]
+                    "enum": ["RETAIL", "SERVICE"]
                   },
                   "business_address": {
                     "type": "string",
@@ -1871,10 +1629,7 @@
                     "maxLength": 50
                   }
                 },
-                "required": [
-                  "business_name",
-                  "business_type"
-                ]
+                "required": ["business_name", "business_type"]
               }
             }
           }
@@ -1903,11 +1658,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "id",
-                    "business_name",
-                    "business_type"
-                  ]
+                  "required": ["id", "business_name", "business_type"]
                 }
               }
             }
@@ -1929,11 +1680,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1955,11 +1702,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -1970,9 +1713,7 @@
     "/api-credentials": {
       "post": {
         "operationId": "generateCredentials",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "summary": "Generate new API credentials",
         "security": [
           {
@@ -2000,12 +1741,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "client_id",
-                    "client_secret",
-                    "status",
-                    "created_at"
-                  ]
+                  "required": ["client_id", "client_secret", "status", "created_at"]
                 }
               }
             }
@@ -2027,11 +1763,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -2040,9 +1772,7 @@
       },
       "get": {
         "operationId": "listCredentials",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "summary": "List API credentials",
         "security": [
           {
@@ -2075,17 +1805,11 @@
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "client_id",
-                          "status",
-                          "created_at"
-                        ]
+                        "required": ["client_id", "status", "created_at"]
                       }
                     }
                   },
-                  "required": [
-                    "credentials"
-                  ]
+                  "required": ["credentials"]
                 }
               }
             }
@@ -2107,11 +1831,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -2122,9 +1842,7 @@
     "/api-credentials/{clientId}": {
       "delete": {
         "operationId": "revokeCredentials",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "summary": "Revoke API credentials",
         "security": [
           {
@@ -2162,11 +1880,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -2188,11 +1902,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -2203,9 +1913,7 @@
     "/api-credentials/oauth/token": {
       "post": {
         "operationId": "oauthTokenExchange",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "summary": "Exchange client credentials for access token",
         "security": [],
         "requestBody": {
@@ -2227,11 +1935,7 @@
                     "minLength": 1
                   }
                 },
-                "required": [
-                  "grant_type",
-                  "client_id",
-                  "client_secret"
-                ]
+                "required": ["grant_type", "client_id", "client_secret"]
               }
             }
           }
@@ -2255,11 +1959,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "access_token",
-                    "token_type",
-                    "expires_in"
-                  ]
+                  "required": ["access_token", "token_type", "expires_in"]
                 }
               }
             }
@@ -2281,11 +1981,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -2307,11 +2003,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -2322,9 +2014,7 @@
     "/transactions/escrows/report": {
       "post": {
         "operationId": "reportEscrowTransaction",
-        "tags": [
-          "Transactions"
-        ],
+        "tags": ["Transactions"],
         "summary": "Report an escrow transaction hash",
         "security": [
           {
@@ -2346,10 +2036,7 @@
                     "minLength": 1
                   }
                 },
-                "required": [
-                  "tx_hash",
-                  "entity_id"
-                ]
+                "required": ["tx_hash", "entity_id"]
               }
             }
           }
@@ -2372,11 +2059,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "entity_id",
-                    "tx_hash",
-                    "status"
-                  ]
+                  "required": ["entity_id", "tx_hash", "status"]
                 }
               }
             }
@@ -2398,11 +2081,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -2424,11 +2103,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -2439,9 +2114,7 @@
     "/transactions/withdrawals/report": {
       "post": {
         "operationId": "reportWithdrawalTransaction",
-        "tags": [
-          "Transactions"
-        ],
+        "tags": ["Transactions"],
         "summary": "Report a withdrawal transaction hash",
         "security": [
           {
@@ -2460,16 +2133,10 @@
                   },
                   "step": {
                     "type": "string",
-                    "enum": [
-                      "redeem",
-                      "bridge"
-                    ]
+                    "enum": ["redeem", "bridge"]
                   }
                 },
-                "required": [
-                  "tx_hash",
-                  "step"
-                ]
+                "required": ["tx_hash", "step"]
               }
             }
           }
@@ -2492,11 +2159,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "entity_id",
-                    "tx_hash",
-                    "status"
-                  ]
+                  "required": ["entity_id", "tx_hash", "status"]
                 }
               }
             }
@@ -2518,11 +2181,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -2544,11 +2203,7 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "error",
-                    "message",
-                    "statusCode"
-                  ]
+                  "required": ["error", "message", "statusCode"]
                 }
               }
             }
@@ -2559,9 +2214,7 @@
     "/webhooks/quicknode": {
       "post": {
         "operationId": "quicknodeWebhook",
-        "tags": [
-          "Webhooks"
-        ],
+        "tags": ["Webhooks"],
         "summary": "QuickNode event webhook receiver",
         "security": [],
         "responses": {
@@ -2574,9 +2227,7 @@
     "/webhooks/relay-callback": {
       "post": {
         "operationId": "relayCallbackWebhook",
-        "tags": [
-          "Webhooks"
-        ],
+        "tags": ["Webhooks"],
         "summary": "Relay operator callback webhook",
         "security": [],
         "responses": {

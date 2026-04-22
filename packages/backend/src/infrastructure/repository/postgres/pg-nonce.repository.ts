@@ -6,11 +6,7 @@ import type { Db } from './db.js';
 export class PgNonceRepository implements INonceRepository {
   constructor(private readonly db: Db) {}
 
-  async save(
-    walletAddress: string,
-    nonce: string,
-    ttlSeconds: number,
-  ): Promise<void> {
+  async save(walletAddress: string, nonce: string, ttlSeconds: number): Promise<void> {
     const expiresAt = Math.floor(Date.now() / 1000) + ttlSeconds;
     await this.db
       .insert(nonces)
@@ -21,16 +17,11 @@ export class PgNonceRepository implements INonceRepository {
       });
   }
 
-  async findAndDelete(
-    walletAddress: string,
-    nonce: string,
-  ): Promise<boolean> {
+  async findAndDelete(walletAddress: string, nonce: string): Promise<boolean> {
     const now = Math.floor(Date.now() / 1000);
     const deleted = await this.db
       .delete(nonces)
-      .where(
-        and(eq(nonces.walletAddress, walletAddress), eq(nonces.nonce, nonce)),
-      )
+      .where(and(eq(nonces.walletAddress, walletAddress), eq(nonces.nonce, nonce)))
       .returning();
 
     if (deleted.length === 0) return false;

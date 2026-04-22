@@ -1,9 +1,6 @@
 import { eq } from 'drizzle-orm';
 import type { IEscrowEventRepository } from '../../../domain/escrow/events/repository/escrow-event.repository.js';
-import {
-  EscrowEvent,
-  type EscrowEventType,
-} from '../../../domain/escrow/events/model/escrow-event.js';
+import { EscrowEvent, type EscrowEventType } from '../../../domain/escrow/events/model/escrow-event.js';
 import { escrowEvents } from './schema.js';
 import type { Db } from './db.js';
 
@@ -38,9 +35,7 @@ export class PgEscrowEventRepository implements IEscrowEventRepository {
   }
 
   async delete(txHash: string): Promise<void> {
-    await this.db
-      .delete(escrowEvents)
-      .where(eq(escrowEvents.txHash, txHash));
+    await this.db.delete(escrowEvents).where(eq(escrowEvents.txHash, txHash));
   }
 
   private toDomain(row: typeof escrowEvents.$inferSelect): EscrowEvent {

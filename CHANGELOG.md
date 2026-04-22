@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-* **ci:** remove explicit pnpm version to avoid packageManager conflict ([f6d4724](https://github.com/ReineiraOS/platform-modules/commit/f6d4724e84aaa3a1a085eba2f9922fec148192ae))
+- **ci:** remove explicit pnpm version to avoid packageManager conflict ([f6d4724](https://github.com/ReineiraOS/platform-modules/commit/f6d4724e84aaa3a1a085eba2f9922fec148192ae))
 
 # Changelog
 

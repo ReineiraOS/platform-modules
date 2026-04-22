@@ -1,14 +1,4 @@
-import {
-  pgTable,
-  pgEnum,
-  text,
-  timestamp,
-  integer,
-  numeric,
-  jsonb,
-  index,
-  primaryKey,
-} from 'drizzle-orm/pg-core';
+import { pgTable, pgEnum, text, timestamp, integer, numeric, jsonb, index, primaryKey } from 'drizzle-orm/pg-core';
 
 export const escrowStatusEnum = pgEnum('escrow_status', [
   'PENDING',
@@ -29,22 +19,13 @@ export const withdrawalStatusEnum = pgEnum('withdrawal_status', [
   'FAILED',
 ]);
 
-export const walletProviderEnum = pgEnum('wallet_provider', [
-  'zerodev',
-  'walletconnect',
-]);
+export const walletProviderEnum = pgEnum('wallet_provider', ['zerodev', 'walletconnect']);
 
 export const businessTypeEnum = pgEnum('business_type', ['RETAIL', 'SERVICE']);
 
-export const credentialStatusEnum = pgEnum('credential_status', [
-  'active',
-  'revoked',
-]);
+export const credentialStatusEnum = pgEnum('credential_status', ['active', 'revoked']);
 
-export const escrowEventTypeEnum = pgEnum('escrow_event_type', [
-  'EscrowCreated',
-  'EscrowSettled',
-]);
+export const escrowEventTypeEnum = pgEnum('escrow_event_type', ['EscrowCreated', 'EscrowSettled']);
 
 export const users = pgTable(
   'users',
@@ -71,10 +52,7 @@ export const sessions = pgTable(
     userAgent: text('user_agent'),
     ipAddress: text('ip_address'),
   },
-  (t) => [
-    index('sessions_refresh_token_idx').on(t.refreshToken),
-    index('sessions_user_id_idx').on(t.userId),
-  ],
+  (t) => [index('sessions_refresh_token_idx').on(t.refreshToken), index('sessions_user_id_idx').on(t.userId)],
 );
 
 export const nonces = pgTable(
@@ -179,10 +157,7 @@ export const apiCredentials = pgTable(
     createdAt: timestamp('created_at').notNull().defaultNow(),
     lastUsedAt: timestamp('last_used_at'),
   },
-  (t) => [
-    index('api_credentials_client_id_idx').on(t.clientId),
-    index('api_credentials_user_id_idx').on(t.userId),
-  ],
+  (t) => [index('api_credentials_client_id_idx').on(t.clientId), index('api_credentials_user_id_idx').on(t.userId)],
 );
 
 export const escrowEvents = pgTable(

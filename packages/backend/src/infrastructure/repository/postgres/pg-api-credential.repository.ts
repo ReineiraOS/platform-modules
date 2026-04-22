@@ -1,9 +1,6 @@
 import { eq } from 'drizzle-orm';
 import type { IApiCredentialRepository } from '../../../domain/api-credential/repository/api-credential.repository.js';
-import {
-  ApiCredential,
-  type ApiCredentialStatus,
-} from '../../../domain/api-credential/model/api-credential.js';
+import { ApiCredential, type ApiCredentialStatus } from '../../../domain/api-credential/model/api-credential.js';
 import { apiCredentials } from './schema.js';
 import type { Db } from './db.js';
 
