@@ -1,3 +1,15 @@
+## [0.2.0](https://github.com/ReineiraOS/platform-modules/compare/v0.1.1...v0.2.0) (2026-04-22)
+
+### Features
+
+* add ESLint v9 flat config for monorepo ([f34ef56](https://github.com/ReineiraOS/platform-modules/commit/f34ef565c1432d859a457400e5386182b7389dd4))
+* add Postgres schema and repository implementations ([48cdaba](https://github.com/ReineiraOS/platform-modules/commit/48cdaba93e2f9a3cf0107ce54baeceea6d6d2eba))
+* implement OpenAPI generation pipeline ([5097b90](https://github.com/ReineiraOS/platform-modules/commit/5097b90a262e7934a420cbe74ca0bbbb3fe89a21))
+
+### Bug Fixes
+
+* update vercel.json install commands for monorepo root directory ([46a8cda](https://github.com/ReineiraOS/platform-modules/commit/46a8cda910df730356d7d9ad03fb872b46d056a7))
+
 ## [0.1.1](https://github.com/ReineiraOS/platform-modules/compare/v0.1.0...v0.1.1) (2026-04-06)
 
 ### Bug Fixes
