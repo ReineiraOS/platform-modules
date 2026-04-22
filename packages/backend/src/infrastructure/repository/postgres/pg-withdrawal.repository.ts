@@ -27,10 +27,7 @@ export class PgWithdrawalRepository implements IWithdrawalRepository {
     return row ? this.toDomain(row) : null;
   }
 
-  async findByUserId(
-    userId: string,
-    options?: FindWithdrawalsByUserIdOptions,
-  ): Promise<PaginatedResult<Withdrawal>> {
+  async findByUserId(userId: string, options?: FindWithdrawalsByUserIdOptions): Promise<PaginatedResult<Withdrawal>> {
     const limit = options?.limit ?? 20;
     const conditions = [eq(withdrawals.userId, userId)];
 
@@ -71,10 +68,7 @@ export class PgWithdrawalRepository implements IWithdrawalRepository {
       .update(withdrawals)
       .set({
         status: withdrawal.status,
-        actualAmount:
-          withdrawal.actualAmount != null
-            ? String(withdrawal.actualAmount)
-            : null,
+        actualAmount: withdrawal.actualAmount != null ? String(withdrawal.actualAmount) : null,
         fee: withdrawal.fee != null ? String(withdrawal.fee) : null,
         redeemTxHash: withdrawal.redeemTxHash,
         bridgeTxHash: withdrawal.bridgeTxHash,
@@ -99,10 +93,7 @@ export class PgWithdrawalRepository implements IWithdrawalRepository {
       status: withdrawal.status,
       estimatedAmount: String(withdrawal.estimatedAmount),
       walletProvider: withdrawal.walletProvider,
-      actualAmount:
-        withdrawal.actualAmount != null
-          ? String(withdrawal.actualAmount)
-          : null,
+      actualAmount: withdrawal.actualAmount != null ? String(withdrawal.actualAmount) : null,
       fee: withdrawal.fee != null ? String(withdrawal.fee) : null,
       redeemTxHash: withdrawal.redeemTxHash,
       bridgeTxHash: withdrawal.bridgeTxHash,

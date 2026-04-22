@@ -10,8 +10,7 @@ let _db: Db | null = null;
 export function getDb(): Db {
   if (!_db) {
     const url = getEnv().DATABASE_URL;
-    if (!url)
-      throw new Error('DATABASE_URL is required when DB_PROVIDER is postgres');
+    if (!url) throw new Error('DATABASE_URL is required when DB_PROVIDER is postgres');
     const sql = neon(url);
     _db = drizzle(sql, { schema });
   }

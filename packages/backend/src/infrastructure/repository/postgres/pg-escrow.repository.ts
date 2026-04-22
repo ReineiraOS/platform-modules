@@ -27,10 +27,7 @@ export class PgEscrowRepository implements IEscrowRepository {
     return row ? this.toDomain(row) : null;
   }
 
-  async findByUserId(
-    userId: string,
-    options?: FindByUserIdOptions,
-  ): Promise<PaginatedResult<Escrow>> {
+  async findByUserId(userId: string, options?: FindByUserIdOptions): Promise<PaginatedResult<Escrow>> {
     const limit = options?.limit ?? 20;
     const conditions = [eq(escrows.userId, userId)];
 

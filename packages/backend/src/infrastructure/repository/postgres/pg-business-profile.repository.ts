@@ -1,15 +1,10 @@
 import { eq } from 'drizzle-orm';
 import type { IBusinessProfileRepository } from '../../../domain/business-profile/repository/business-profile.repository.js';
-import {
-  BusinessProfile,
-  type BusinessType,
-} from '../../../domain/business-profile/model/business-profile.js';
+import { BusinessProfile, type BusinessType } from '../../../domain/business-profile/model/business-profile.js';
 import { businessProfiles } from './schema.js';
 import type { Db } from './db.js';
 
-export class PgBusinessProfileRepository
-  implements IBusinessProfileRepository
-{
+export class PgBusinessProfileRepository implements IBusinessProfileRepository {
   constructor(private readonly db: Db) {}
 
   async findByUserId(userId: string): Promise<BusinessProfile | null> {
@@ -41,9 +36,7 @@ export class PgBusinessProfileRepository
       });
   }
 
-  private toDomain(
-    row: typeof businessProfiles.$inferSelect,
-  ): BusinessProfile {
+  private toDomain(row: typeof businessProfiles.$inferSelect): BusinessProfile {
     return new BusinessProfile({
       id: row.id,
       userId: row.userId,
