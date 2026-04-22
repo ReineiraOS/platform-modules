@@ -1,4 +1,4 @@
-export type WalletProvider = 'zerodev' | 'walletconnect';
+export type WalletProvider = string;
 
 export interface UserParams {
   id: string;

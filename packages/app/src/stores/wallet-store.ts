@@ -4,6 +4,27 @@ import { ZeroDevProvider } from '@/providers/zerodev/zerodev.provider';
 
 export type WalletProviderType = 'zerodev';
 
+const DEFAULT_PROVIDER_TYPE: WalletProviderType = 'zerodev';
+
+function createProvider(
+  type: WalletProviderType,
+): IWalletProvider & { register?: (username: string) => Promise<string> } {
+  switch (type) {
+    case 'zerodev':
+      return new ZeroDevProvider();
+    default: {
+      const exhaustive: never = type;
+      throw new Error(`Unsupported wallet provider: ${exhaustive as string}`);
+    }
+  }
+}
+
+function readPersistedProviderType(): WalletProviderType {
+  const stored = localStorage.getItem('wallet_provider');
+  if (stored === 'zerodev') return 'zerodev';
+  return DEFAULT_PROVIDER_TYPE;
+}
+
 let _provider: IWalletProvider | null = null;
 let _reconnectPromise: Promise<void> | null = null;
 
@@ -14,7 +35,7 @@ interface WalletState {
   error: string | null;
   isConnected: () => boolean;
   connect: (type: WalletProviderType) => Promise<string>;
-  register: (username: string) => Promise<string>;
+  register: (type: WalletProviderType, username: string) => Promise<string>;
   disconnect: () => Promise<void>;
   signMessage: (message: string) => Promise<string>;
   sendUserOperation: (calls: Array<{ to: string; data: string; value?: bigint }>) => Promise<string>;
@@ -22,10 +43,11 @@ interface WalletState {
 }
 
 async function reconnect(): Promise<void> {
-  const p = new ZeroDevProvider();
+  const type = readPersistedProviderType();
+  const p = createProvider(type);
   const addr = await p.connect();
   _provider = p;
-  useWalletStore.setState({ activeProviderType: 'zerodev', address: addr });
+  useWalletStore.setState({ activeProviderType: type, address: addr });
 }
 
 export const useWalletStore = create<WalletState>((set, get) => ({
@@ -53,7 +75,7 @@ export const useWalletStore = create<WalletState>((set, get) => ({
   connect: async (type) => {
     set({ connecting: true, error: null });
     try {
-      const p = new ZeroDevProvider();
+      const p = createProvider(type);
       const addr = await p.connect();
       _provider = p;
       set({ activeProviderType: type, address: addr });
@@ -67,13 +89,16 @@ export const useWalletStore = create<WalletState>((set, get) => ({
     }
   },
 
-  register: async (username) => {
+  register: async (type, username) => {
     set({ connecting: true, error: null });
     try {
-      const p = new ZeroDevProvider();
+      const p = createProvider(type);
+      if (typeof p.register !== 'function') {
+        throw new Error(`Provider ${type} does not support register`);
+      }
       const addr = await p.register(username);
       _provider = p;
-      set({ activeProviderType: 'zerodev', address: addr });
+      set({ activeProviderType: type, address: addr });
       return addr;
     } catch (e) {
       const msg = e instanceof Error ? e.message : 'Registration failed';

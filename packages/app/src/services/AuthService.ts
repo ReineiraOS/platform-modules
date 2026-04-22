@@ -20,12 +20,14 @@ export class AuthService {
     message: string,
     signature: string,
     email?: string,
+    walletProvider?: string,
   ): Promise<TokenResponse> {
     const { data } = await httpClient.post<TokenResponse>('/v1/auth/wallet/verify', {
       wallet_address: walletAddress,
       message,
       signature,
       ...(email && { email }),
+      ...(walletProvider && { wallet_provider: walletProvider }),
     });
     return data;
   }

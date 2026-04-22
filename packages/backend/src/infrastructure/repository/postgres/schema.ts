@@ -19,8 +19,6 @@ export const withdrawalStatusEnum = pgEnum('withdrawal_status', [
   'FAILED',
 ]);
 
-export const walletProviderEnum = pgEnum('wallet_provider', ['zerodev', 'walletconnect']);
-
 export const businessTypeEnum = pgEnum('business_type', ['RETAIL', 'SERVICE']);
 
 export const credentialStatusEnum = pgEnum('credential_status', ['active', 'revoked']);
@@ -32,7 +30,7 @@ export const users = pgTable(
   {
     id: text('id').primaryKey(),
     walletAddress: text('wallet_address').unique().notNull(),
-    walletProvider: walletProviderEnum('wallet_provider').notNull(),
+    walletProvider: text('wallet_provider').notNull(),
     email: text('email'),
     createdAt: timestamp('created_at').notNull().defaultNow(),
   },
