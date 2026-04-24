@@ -26,7 +26,9 @@ export default function PricingFeatures() {
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
             {block.eyebrow ? (
-              <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-[var(--accent-teal)]">{block.eyebrow}</p>
+              <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-[var(--accent-teal)]">
+                {block.eyebrow}
+              </p>
             ) : null}
             <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-medium text-white leading-[1.1] tracking-[-0.03em] mb-5">
               {block.title}

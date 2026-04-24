@@ -27,7 +27,9 @@ export default function BusinessCTA() {
             {cta.title}
           </h2>
           {cta.subtitle ? (
-            <p className="text-base sm:text-lg lg:text-xl leading-relaxed mb-8 sm:mb-10 text-white/50">{cta.subtitle}</p>
+            <p className="text-base sm:text-lg lg:text-xl leading-relaxed mb-8 sm:mb-10 text-white/50">
+              {cta.subtitle}
+            </p>
           ) : null}
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">

@@ -60,7 +60,13 @@ function DropdownMenu({ items, isOpen }: { items: DropdownItem[]; isOpen: boolea
                   {item.label}
                   {item.external ? (
                     <svg width="10" height="10" viewBox="0 0 12 12" fill="none" className="text-white/30">
-                      <path d="M3 9L9 3M9 3H4.5M9 3V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path
+                        d="M3 9L9 3M9 3H4.5M9 3V7.5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   ) : null}
                 </p>
@@ -246,9 +252,15 @@ export default function Header() {
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             <div className="relative w-5 h-4">
-              <span className={`absolute left-0 w-5 h-0.5 bg-white transition-all duration-300 ease-out ${isMenuOpen ? 'top-[7px] rotate-45' : 'top-0 rotate-0'}`} />
-              <span className={`absolute left-0 top-[7px] w-5 h-0.5 bg-white transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}`} />
-              <span className={`absolute left-0 w-5 h-0.5 bg-white transition-all duration-300 ease-out ${isMenuOpen ? 'top-[7px] -rotate-45' : 'top-[14px] rotate-0'}`} />
+              <span
+                className={`absolute left-0 w-5 h-0.5 bg-white transition-all duration-300 ease-out ${isMenuOpen ? 'top-[7px] rotate-45' : 'top-0 rotate-0'}`}
+              />
+              <span
+                className={`absolute left-0 top-[7px] w-5 h-0.5 bg-white transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}`}
+              />
+              <span
+                className={`absolute left-0 w-5 h-0.5 bg-white transition-all duration-300 ease-out ${isMenuOpen ? 'top-[7px] -rotate-45' : 'top-[14px] rotate-0'}`}
+              />
             </div>
           </button>
         </nav>
@@ -313,7 +325,9 @@ export default function Header() {
                           </div>
                           <div>
                             <p className="text-[15px] font-medium text-white/80">{subItem.label}</p>
-                            {subItem.description ? <p className="text-xs text-white/50">{subItem.description}</p> : null}
+                            {subItem.description ? (
+                              <p className="text-xs text-white/50">{subItem.description}</p>
+                            ) : null}
                           </div>
                         </div>
                       )

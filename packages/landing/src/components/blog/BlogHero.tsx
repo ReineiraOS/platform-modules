@@ -20,7 +20,9 @@ export default function BlogHero() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           {hero.eyebrow ? (
-            <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-[var(--accent-teal)]">{hero.eyebrow}</p>
+            <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-[var(--accent-teal)]">
+              {hero.eyebrow}
+            </p>
           ) : null}
           <h1 className="text-[36px] sm:text-[56px] md:text-[72px] font-semibold text-white leading-[1.12] sm:leading-[1.05] tracking-[-0.035em] mb-6 sm:mb-8">
             {hero.title}

@@ -11,8 +11,7 @@ interface Props {
   params: Promise<{ slug: string }>
 }
 
-const allPosts = () =>
-  site.blog.grid.posts.length > 0 ? site.blog.grid.posts : site.home.blog.posts
+const allPosts = () => (site.blog.grid.posts.length > 0 ? site.blog.grid.posts : site.home.blog.posts)
 
 export async function generateStaticParams() {
   const posts = allPosts()

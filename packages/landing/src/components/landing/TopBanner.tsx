@@ -36,7 +36,13 @@ export default function TopBanner() {
       {banner.text}
       {banner.href ? (
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="inline-block ml-0.5">
-          <path d="M5 8H11M11 8L8.5 5.5M11 8L8.5 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M5 8H11M11 8L8.5 5.5M11 8L8.5 10.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       ) : null}
     </span>
@@ -46,7 +52,11 @@ export default function TopBanner() {
     <div className="sticky top-0 z-[60] bg-[#1a1a1a] text-white border-b border-white/[0.06]">
       <div className="container flex items-center justify-center h-10">
         {banner.href ? (
-          <a href={banner.href} target={banner.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+          <a
+            href={banner.href}
+            target={banner.href.startsWith('http') ? '_blank' : undefined}
+            rel="noopener noreferrer"
+          >
             {content}
           </a>
         ) : (

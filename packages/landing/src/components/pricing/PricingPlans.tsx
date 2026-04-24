@@ -26,7 +26,9 @@ export default function PricingPlans() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           {pricing.eyebrow ? (
-            <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-[var(--accent-teal)]">{pricing.eyebrow}</p>
+            <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-[var(--accent-teal)]">
+              {pricing.eyebrow}
+            </p>
           ) : null}
           <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-medium text-white leading-[1.1] tracking-[-0.03em] mb-5">
             {pricing.title}
@@ -38,11 +40,15 @@ export default function PricingPlans() {
 
         <div
           className={`grid grid-cols-1 sm:grid-cols-2 ${
-            pricing.plans.length === 1 ? 'lg:grid-cols-1' :
-            pricing.plans.length === 2 ? 'lg:grid-cols-2' :
-            pricing.plans.length === 3 ? 'lg:grid-cols-3' :
-            pricing.plans.length === 4 ? 'lg:grid-cols-4' :
-            'lg:grid-cols-5'
+            pricing.plans.length === 1
+              ? 'lg:grid-cols-1'
+              : pricing.plans.length === 2
+                ? 'lg:grid-cols-2'
+                : pricing.plans.length === 3
+                  ? 'lg:grid-cols-3'
+                  : pricing.plans.length === 4
+                    ? 'lg:grid-cols-4'
+                    : 'lg:grid-cols-5'
           } gap-4 lg:gap-0 max-w-5xl mx-auto lg:border lg:border-white/10 lg:rounded-2xl lg:overflow-hidden`}
         >
           {pricing.plans.map((plan, index) => (

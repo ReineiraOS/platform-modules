@@ -29,7 +29,10 @@ export default function ImagePlaceholder({ description, width, height, className
       role="img"
       aria-label={description}
     >
-      <span>[IMAGE: {description}{width && height ? ` — ${width}×${height}` : ''}]</span>
+      <span>
+        [IMAGE: {description}
+        {width && height ? ` — ${width}×${height}` : ''}]
+      </span>
     </div>
   )
 }

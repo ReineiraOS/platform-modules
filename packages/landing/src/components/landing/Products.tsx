@@ -42,18 +42,18 @@ export default function Products() {
 
         <div
           className={`grid grid-cols-1 gap-5 lg:gap-6 ${
-            products.items.length === 1 ? 'lg:grid-cols-1' :
-            products.items.length === 2 ? 'lg:grid-cols-2' :
-            'lg:grid-cols-3'
+            products.items.length === 1
+              ? 'lg:grid-cols-1'
+              : products.items.length === 2
+                ? 'lg:grid-cols-2'
+                : 'lg:grid-cols-3'
           }`}
         >
           {products.items.map((product) => {
             const Icon = getIcon(product.icon)
             const href = product.href ?? '#'
             const isExternal = href.startsWith('http')
-            const linkProps = isExternal
-              ? { href, target: '_blank' as const, rel: 'noopener noreferrer' }
-              : { href }
+            const linkProps = isExternal ? { href, target: '_blank' as const, rel: 'noopener noreferrer' } : { href }
 
             return (
               <m.article
@@ -68,7 +68,10 @@ export default function Products() {
                     <ImagePlaceholder description={product.image?.description ?? product.title} fill />
                   )}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" aria-hidden="true" />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+                  aria-hidden="true"
+                />
 
                 <div className="relative p-6 sm:p-8 lg:p-10">
                   <div className="flex items-center gap-3 mb-4">

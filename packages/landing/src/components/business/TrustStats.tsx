@@ -19,12 +19,17 @@ export default function TrustStats() {
       <div className="container">
         <m.div
           className={`grid grid-cols-2 gap-6 lg:gap-0 max-w-5xl mx-auto ${
-            stats.length === 1 ? 'lg:grid-cols-1' :
-            stats.length === 2 ? 'lg:grid-cols-2' :
-            stats.length === 3 ? 'lg:grid-cols-3' :
-            stats.length === 4 ? 'lg:grid-cols-4' :
-            stats.length === 5 ? 'lg:grid-cols-5' :
-            'lg:grid-cols-6'
+            stats.length === 1
+              ? 'lg:grid-cols-1'
+              : stats.length === 2
+                ? 'lg:grid-cols-2'
+                : stats.length === 3
+                  ? 'lg:grid-cols-3'
+                  : stats.length === 4
+                    ? 'lg:grid-cols-4'
+                    : stats.length === 5
+                      ? 'lg:grid-cols-5'
+                      : 'lg:grid-cols-6'
           }`}
           initial={prefersReducedMotion ? false : { opacity: 0 }}
           animate={isInView || prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}

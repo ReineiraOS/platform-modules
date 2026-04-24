@@ -289,7 +289,13 @@ export const site: SiteConfig = {
       {
         label: 'Developers',
         items: [
-          { label: 'Documentation', description: lorem('item-description'), href: '#', icon: 'BookOpen', external: true },
+          {
+            label: 'Documentation',
+            description: lorem('item-description'),
+            href: '#',
+            icon: 'BookOpen',
+            external: true,
+          },
           { label: 'GitHub', description: lorem('item-description'), href: '#', icon: 'GithubLogo', external: true },
           { label: 'Web Demo', description: lorem('item-description'), href: '#', icon: 'Browser', external: true },
         ],
@@ -369,7 +375,13 @@ export const site: SiteConfig = {
       subtitle: lorem('subhead'),
       items: [
         { id: 'p1', icon: 'Monitor', title: lorem('item-title'), description: lorem('item-description'), href: '#' },
-        { id: 'p2', icon: 'DeviceMobile', title: lorem('item-title'), description: lorem('item-description'), href: '/mobile' },
+        {
+          id: 'p2',
+          icon: 'DeviceMobile',
+          title: lorem('item-title'),
+          description: lorem('item-description'),
+          href: '/mobile',
+        },
         { id: 'p3', icon: 'Code', title: lorem('item-title'), description: lorem('item-description'), href: '#' },
       ],
     },
@@ -526,7 +538,13 @@ export const site: SiteConfig = {
           name: 'Enterprise',
           price: 'Custom',
           description: lorem('item-description'),
-          features: [lorem('item-title'), lorem('item-title'), lorem('item-title'), lorem('item-title'), lorem('item-title')],
+          features: [
+            lorem('item-title'),
+            lorem('item-title'),
+            lorem('item-title'),
+            lorem('item-title'),
+            lorem('item-title'),
+          ],
           cta: { label: 'Contact sales', href: '/contact' },
         },
       ],
@@ -706,7 +724,13 @@ export const site: SiteConfig = {
           name: 'Enterprise',
           price: 'Custom',
           description: lorem('item-description'),
-          features: [lorem('item-title'), lorem('item-title'), lorem('item-title'), lorem('item-title'), lorem('item-title')],
+          features: [
+            lorem('item-title'),
+            lorem('item-title'),
+            lorem('item-title'),
+            lorem('item-title'),
+            lorem('item-title'),
+          ],
           cta: { label: 'Contact sales', href: '/contact' },
         },
       ],
@@ -753,7 +777,12 @@ export const site: SiteConfig = {
     departments: [
       { icon: 'Lifebuoy', label: 'General', email: 'support@example.com', description: lorem('item-description') },
       { icon: 'Code', label: 'Technical', email: 'dev@example.com', description: lorem('item-description') },
-      { icon: 'Handshake', label: 'Media & Partnerships', email: 'media@example.com', description: lorem('item-description') },
+      {
+        icon: 'Handshake',
+        label: 'Media & Partnerships',
+        email: 'media@example.com',
+        description: lorem('item-description'),
+      },
       { icon: 'Briefcase', label: 'Sales', email: 'sales@example.com', description: lorem('item-description') },
     ],
   },
@@ -761,12 +790,14 @@ export const site: SiteConfig = {
     eyebrow: 'Legal',
     title: 'Privacy Policy',
     effectiveDate: null,
-    markdown: '<section><h2>[LOREM: section heading]</h2><p>[LOREM: legal paragraph — replace with real privacy policy content]</p></section>',
+    markdown:
+      '<section><h2>[LOREM: section heading]</h2><p>[LOREM: legal paragraph — replace with real privacy policy content]</p></section>',
   },
   terms: {
     eyebrow: 'Legal',
     title: 'Terms of Service',
     effectiveDate: null,
-    markdown: '<section><h2>[LOREM: section heading]</h2><p>[LOREM: legal paragraph — replace with real terms of service content]</p></section>',
+    markdown:
+      '<section><h2>[LOREM: section heading]</h2><p>[LOREM: legal paragraph — replace with real terms of service content]</p></section>',
   },
 }

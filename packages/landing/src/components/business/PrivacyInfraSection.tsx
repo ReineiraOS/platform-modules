@@ -16,7 +16,13 @@ export default function PrivacyInfraSection() {
           <div className="relative aspect-[4/3] lg:aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden">
             {block.image?.src ? (
               <>
-                <Image src={block.image.src} alt={block.image.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                <Image
+                  src={block.image.src}
+                  alt={block.image.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </>
             ) : (

@@ -54,11 +54,15 @@ export default function Footer() {
 
             <div
               className={`grid grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-10 flex-1 ${
-                footer.groups.length === 1 ? 'sm:grid-cols-1' :
-                footer.groups.length === 2 ? 'sm:grid-cols-2' :
-                footer.groups.length === 3 ? 'sm:grid-cols-3' :
-                footer.groups.length === 4 ? 'sm:grid-cols-4' :
-                'sm:grid-cols-5'
+                footer.groups.length === 1
+                  ? 'sm:grid-cols-1'
+                  : footer.groups.length === 2
+                    ? 'sm:grid-cols-2'
+                    : footer.groups.length === 3
+                      ? 'sm:grid-cols-3'
+                      : footer.groups.length === 4
+                        ? 'sm:grid-cols-4'
+                        : 'sm:grid-cols-5'
               }`}
             >
               {footer.groups.map((group) => (

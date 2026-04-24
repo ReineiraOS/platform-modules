@@ -57,14 +57,15 @@ export default function Features() {
                       priority={index === 0}
                     />
                   ) : (
-                    <ImagePlaceholder
-                      description={feature.image?.description ?? feature.title}
-                      fill
-                    />
+                    <ImagePlaceholder description={feature.image?.description ?? feature.title} fill />
                   )}
                 </div>
 
-                <div className="absolute inset-0 transition-opacity duration-300" style={OVERLAY_STYLE} aria-hidden="true" />
+                <div
+                  className="absolute inset-0 transition-opacity duration-300"
+                  style={OVERLAY_STYLE}
+                  aria-hidden="true"
+                />
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={HOVER_OVERLAY_STYLE}

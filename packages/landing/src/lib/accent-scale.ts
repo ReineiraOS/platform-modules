@@ -2,7 +2,13 @@ export type AccentScale = Record<'50' | '100' | '200' | '300' | '400' | '500' | 
 
 function hexToRgb(hex: string): [number, number, number] {
   const clean = hex.replace('#', '').trim()
-  const full = clean.length === 3 ? clean.split('').map((c) => c + c).join('') : clean
+  const full =
+    clean.length === 3
+      ? clean
+          .split('')
+          .map((c) => c + c)
+          .join('')
+      : clean
   const n = parseInt(full.slice(0, 6), 16)
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255]
 }

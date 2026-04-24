@@ -13,7 +13,7 @@ export default function Hero() {
 
   const renderCta = (
     cta: { label: string; href: string; external?: boolean } | null | undefined,
-    variant: 'primary' | 'secondary',
+    variant: 'primary' | 'secondary'
   ) => {
     if (!cta) return null
     const className =

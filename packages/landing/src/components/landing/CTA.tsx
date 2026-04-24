@@ -22,12 +22,17 @@ export default function CTA() {
 
       <div
         className="absolute inset-0 z-[2] pointer-events-none"
-        style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.25) 100%)' }}
+        style={{
+          background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.25) 100%)',
+        }}
         aria-hidden="true"
       />
       <div
         className="absolute top-0 left-0 right-0 h-16 sm:h-24 lg:h-32 z-[3] pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, var(--color-surface-elevated) 0%, var(--color-surface-elevated) 20%, transparent 100%)' }}
+        style={{
+          background:
+            'linear-gradient(to bottom, var(--color-surface-elevated) 0%, var(--color-surface-elevated) 20%, transparent 100%)',
+        }}
         aria-hidden="true"
       />
       <div

@@ -55,14 +55,24 @@ export default function MobileFeatures() {
                 animate={isInView || prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: 'easeOut' }}
                 className={`group relative p-8 sm:p-10 lg:p-12 transition-all duration-300 overflow-hidden flex flex-col justify-end rounded-2xl border border-[var(--border-dark)] ${
-                  index === 0 ? 'md:col-span-2 min-h-[280px] sm:min-h-[320px] lg:min-h-[400px]' : 'min-h-[240px] sm:min-h-[280px] lg:min-h-[320px]'
+                  index === 0
+                    ? 'md:col-span-2 min-h-[280px] sm:min-h-[320px] lg:min-h-[400px]'
+                    : 'min-h-[240px] sm:min-h-[280px] lg:min-h-[320px]'
                 }`}
               >
                 <div className="absolute inset-0" aria-hidden="true">
                   <ImagePlaceholder description={feature.image?.description ?? feature.title} fill />
                 </div>
-                <div className="absolute inset-0 transition-opacity duration-300" style={OVERLAY_STYLE} aria-hidden="true" />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={HOVER_OVERLAY_STYLE} aria-hidden="true" />
+                <div
+                  className="absolute inset-0 transition-opacity duration-300"
+                  style={OVERLAY_STYLE}
+                  aria-hidden="true"
+                />
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={HOVER_OVERLAY_STYLE}
+                  aria-hidden="true"
+                />
 
                 <div className="relative">
                   <div className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center mb-4 rounded-lg transition-colors duration-300 text-white bg-white/10 group-hover:bg-white group-hover:text-black">

@@ -75,12 +75,20 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" className="relative overflow-hidden" style={{ padding: 0 }}>
-      <div className="absolute top-0 left-0 right-0 h-16 sm:h-20 z-[3] pointer-events-none" style={TOP_GRADIENT_STYLE} aria-hidden="true" />
+      <div
+        className="absolute top-0 left-0 right-0 h-16 sm:h-20 z-[3] pointer-events-none"
+        style={TOP_GRADIENT_STYLE}
+        aria-hidden="true"
+      />
       <div className="absolute inset-0 z-[1]" aria-hidden="true">
         <div className="absolute inset-0" style={BG_GRADIENT_STYLE} />
       </div>
       <div className="absolute inset-0 z-[2]" style={OVERLAY_STYLE} aria-hidden="true" />
-      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 z-[3] pointer-events-none" style={BOTTOM_GRADIENT_STYLE} aria-hidden="true" />
+      <div
+        className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 z-[3] pointer-events-none"
+        style={BOTTOM_GRADIENT_STYLE}
+        aria-hidden="true"
+      />
 
       <div className="container relative z-10 py-20 sm:py-28 lg:py-36">
         <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 lg:mb-16">

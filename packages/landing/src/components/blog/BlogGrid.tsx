@@ -15,7 +15,9 @@ export default function BlogGrid() {
   if (posts.length === 0) {
     return (
       <section ref={sectionRef} className="pb-24 sm:pb-32 lg:pb-36 bg-black">
-        <div className="container text-center text-white/40 text-sm">[LOREM: no blog posts yet — populate site.blog.grid.posts]</div>
+        <div className="container text-center text-white/40 text-sm">
+          [LOREM: no blog posts yet — populate site.blog.grid.posts]
+        </div>
       </section>
     )
   }

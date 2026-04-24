@@ -23,7 +23,9 @@ export default function MobileHero() {
       </div>
       <div
         className="absolute inset-0 z-[1]"
-        style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.65) 100%)' }}
+        style={{
+          background: 'linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.65) 100%)',
+        }}
         aria-hidden="true"
       />
       <div

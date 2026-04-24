@@ -19,7 +19,11 @@ export default function BusinessHeader() {
   return (
     <header
       className="sticky top-0 left-0 right-0 z-50 h-[72px]"
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.85)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border-dark)' }}
+      style={{
+        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+        backdropFilter: 'blur(20px)',
+        borderBottom: '1px solid var(--border-dark)',
+      }}
     >
       <nav className="container flex items-center h-full" aria-label="Business navigation">
         <Link href="/" className="flex items-center shrink-0" aria-label={`${brandName} Home`}>

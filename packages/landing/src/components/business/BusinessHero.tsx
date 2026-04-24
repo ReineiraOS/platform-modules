@@ -44,7 +44,9 @@ export default function BusinessHero() {
           <div className="lg:min-h-[calc(100vh-72px)] flex-1 flex items-center pt-10 sm:pt-16 lg:pt-0 pb-6 sm:pb-12 lg:pb-0">
             <div className="max-w-2xl w-full">
               {hero.eyebrow ? (
-                <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-[var(--accent-teal)]">{hero.eyebrow}</p>
+                <p className="text-sm font-semibold tracking-widest uppercase mb-4 text-[var(--accent-teal)]">
+                  {hero.eyebrow}
+                </p>
               ) : null}
               <h1 className="text-[28px] sm:text-[36px] lg:text-[44px] xl:text-[52px] font-medium text-white leading-[1.15] tracking-[-0.02em] mb-4 sm:mb-6">
                 {hero.title}
