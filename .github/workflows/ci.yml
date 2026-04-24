@@ -50,6 +50,9 @@ jobs:
       - name: Lint app
         run: pnpm --filter @reineira-os/modules-app run lint
 
+      - name: Lint landing
+        run: pnpm --filter @reineira-os/modules-landing run lint
+
   build:
     name: Build
     runs-on: ubuntu-latest

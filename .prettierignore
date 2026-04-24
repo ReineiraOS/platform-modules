@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.next/
+out/
+coverage/
+pnpm-lock.yaml
+CHANGELOG.md
+**/next-env.d.ts
