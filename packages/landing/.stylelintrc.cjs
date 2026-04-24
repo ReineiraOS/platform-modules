@@ -1,0 +1,40 @@
+module.exports = {
+  plugins: ['stylelint-scss'],
+  extends: ['stylelint-config-recommended-scss', 'stylelint-config-recommended-vue/scss'],
+  rules: {
+    'no-duplicate-selectors': null,
+    indentation: null,
+    'no-descending-specificity': null,
+    'at-rule-empty-line-before': null,
+    'custom-property-empty-line-before': null,
+    'declaration-empty-line-before': null,
+    'max-nesting-depth': null,
+    'value-keyword-case': null,
+    'color-hex-length': ['long'],
+    'color-hex-case': 'lower',
+    'color-named': 'never',
+    'declaration-block-single-line-max-declarations': [0],
+    'selector-max-compound-selectors': 6,
+    'selector-class-pattern': null,
+    'media-feature-name-no-unknown': null,
+    'selector-pseudo-element-no-unknown': [
+      true,
+      {
+        ignorePseudoElements: ['v-deep'],
+      },
+    ],
+    'scss/dollar-variable-colon-space-after': ['always-single-line'],
+    'scss/at-function-pattern': null,
+    'scss/at-mixin-pattern': null,
+    'scss/dollar-variable-pattern': null,
+    'scss/percent-placeholder-pattern': null,
+    'scss/at-mixin-argumentless-call-parentheses': 'never',
+    'scss/no-duplicate-dollar-variables': true,
+    'property-no-unknown': [
+      true,
+      {
+        ignoreProperties: ['field-sizing'],
+      },
+    ],
+  },
+}
