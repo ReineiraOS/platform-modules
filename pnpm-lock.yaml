@@ -54,8 +54,8 @@ importers:
   packages/app:
     dependencies:
       '@cofhe/sdk':
-        specifier: ^0.4.0
-        version: 0.4.0(@types/react@19.2.14)(ethers@6.16.0)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(viem@2.47.6(typescript@5.9.3)(zod@4.3.6))
+        specifier: ^0.5.0
+        version: 0.5.0(@types/react@19.2.14)(ethers@6.16.0)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(viem@2.47.6(typescript@5.9.3)(zod@4.3.6))
       '@radix-ui/react-dialog':
         specifier: ^1
         version: 1.1.15(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -109,7 +109,7 @@ importers:
         version: 2.47.6(typescript@5.9.3)(zod@4.3.6)
       zustand:
         specifier: ^5
-        version: 5.0.12(@types/react@19.2.14)(immer@10.2.0)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))
+        version: 5.0.12(@types/react@19.2.14)(immer@10.1.1)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))
     devDependencies:
       '@tailwindcss/vite':
         specifier: ^4
@@ -369,8 +369,8 @@ packages:
   '@bytecodealliance/preview2-shim@0.17.6':
     resolution: {integrity: sha512-n3cM88gTen5980UOBAD6xDcNNL3ocTK8keab21bpx1ONdA+ARj7uD1qoFxOWCyKlkpSi195FH+GeAut7Oc6zZw==}
 
-  '@cofhe/sdk@0.4.0':
-    resolution: {integrity: sha512-L+X8S9sKV0pT7gMAx4OxluiKnjP3uPQVw1GN+HBE8lRo8icZcPyGU2LrZQoXvnTU04g+147zvBhoZ0cSCMj1/Q==}
+  '@cofhe/sdk@0.5.0':
+    resolution: {integrity: sha512-KqYV2bNUVTRUsTJrKl+4i37Nf2bkcHefO0+0RvVn4GtlP13AFde1+WXZ4vSHwkLVXAQjIIvqqz3vmAAPQMmzhg==}
     peerDependencies:
       '@nomicfoundation/hardhat-ethers': ^3.0.0
       '@wagmi/core': ^2.0.0
@@ -4100,8 +4100,8 @@ packages:
     resolution: {integrity: sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==}
     engines: {node: '>= 4'}
 
-  immer@10.2.0:
-    resolution: {integrity: sha512-d/+XTN3zfODyjr89gM3mPq1WNX2B8pYsu7eORitdwyA2sBubnTl3laYlBk4sXY5FUa5qTZGBDPJICVbvqzjlbw==}
+  immer@10.1.1:
+    resolution: {integrity: sha512-s2MPrmjovJcoMaHtx6K11Ra7oD05NT97w1IC5zpMkT6Atjr7H8LjaDd81iIxUYpMKSRRNMJE703M1Fhr/TctHw==}
 
   import-fresh@3.3.1:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
@@ -4766,8 +4766,8 @@ packages:
     resolution: {integrity: sha512-X75ZN8DCLftGM5iKwoYLA3rjnrAEs97MkzvSd4q2746Tgpg8b8XWiBGiBG4ZpgcAqBgtgPHTiAc8ZMCvZuikDw==}
     engines: {node: '>=10'}
 
-  node-tfhe@0.11.1:
-    resolution: {integrity: sha512-QFkIeIZ5IbdvhpkzImwakL2+sZFCTXCwGvOacE1NczR+zgrg5ixHU9KpjuuIi1YbbKFGJEMoSUmivDktuzFaKg==}
+  node-tfhe@1.5.3:
+    resolution: {integrity: sha512-VjCx9vaNbTkw8I0IeMvmHPUOfjiXysbQXc9C4LKx4V8GmPNKufL6fAaDyFWWeAuHa/xs/AaWlTQ3jkTlFL4K+w==}
 
   nopt@8.1.0:
     resolution: {integrity: sha512-ieGu42u/Qsa4TFktmaKEwM6MQH0pOWnaB3htzh0JRtx84+Mebc0cbZYN5bC+6WTZ4+77xrL9Pn5m7CV6VIkV7A==}
@@ -5788,6 +5788,9 @@ packages:
   tfhe@0.11.1:
     resolution: {integrity: sha512-D4YeL0DYz4IOV/X7YzKFexkjbJdOdGn2M7mfDNOQW1OxA+NO/Z61BJ6ULLTvdBEQ3N6P985lNO61Drgsjf0g/w==}
 
+  tfhe@1.5.3:
+    resolution: {integrity: sha512-Geyw5g1TeHFqNGWYiXZmmfRl1wFml3Jkmo9mHor3nPSIr6V6LJRLILceqKdvOW2ieqxB662gwmm2Qo4SUji2tA==}
+
   thenify-all@1.6.0:
     resolution: {integrity: sha512-RNxQH/qI8/t3thXJDwcstUO4zeqo64+Uy/+sNVRBx4Xn2OX+OZ9oP+iJnNFqplFra2ZUVeKCSa2oVWi3T4uVmA==}
     engines: {node: '>=0.8'}
@@ -6366,8 +6369,29 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
+  zod@4.0.0:
+    resolution: {integrity: sha512-9diLdTPc/L7w/5jI4C3gHYNiGHDV9IZYxo1e5LSD8cabi65WVTWWb+g2BGPEpUUCOxR4D+6O5B0AzyMdUAXwrw==}
+
   zod@4.3.6:
     resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
+
+  zustand@5.0.1:
+    resolution: {integrity: sha512-pRET7Lao2z+n5R/HduXMio35TncTlSW68WsYBq2Lg1ASspsNGjpwLAsij3RpouyV6+kHMwwwzP0bZPD70/Jx/w==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      immer: '>=9.0.6'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+      use-sync-external-store:
+        optional: true
 
   zustand@5.0.12:
     resolution: {integrity: sha512-i77ae3aZq4dhMlRhJVCYgMLKuSiZAaUPAct2AksxQ+gOtimhGMdXljRT21P5BNpeT4kXlLIckvkPM029OljD7g==}
@@ -6537,16 +6561,16 @@ snapshots:
 
   '@bytecodealliance/preview2-shim@0.17.6': {}
 
-  '@cofhe/sdk@0.4.0(@types/react@19.2.14)(ethers@6.16.0)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(viem@2.47.6(typescript@5.9.3)(zod@4.3.6))':
+  '@cofhe/sdk@0.5.0(@types/react@19.2.14)(ethers@6.16.0)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(viem@2.47.6(typescript@5.9.3)(zod@4.3.6))':
     dependencies:
       iframe-shared-storage: 1.0.34
-      immer: 10.2.0
-      node-tfhe: 0.11.1
-      tfhe: 0.11.1
+      immer: 10.1.1
+      node-tfhe: 1.5.3
+      tfhe: 1.5.3
       tweetnacl: 1.0.3
       viem: 2.47.6(typescript@5.9.3)(zod@4.3.6)
-      zod: 4.3.6
-      zustand: 5.0.12(@types/react@19.2.14)(immer@10.2.0)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))
+      zod: 4.0.0
+      zustand: 5.0.1(@types/react@19.2.14)(immer@10.1.1)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))
     optionalDependencies:
       ethers: 6.16.0
     transitivePeerDependencies:
@@ -10185,7 +10209,7 @@ snapshots:
 
   ignore@7.0.5: {}
 
-  immer@10.2.0: {}
+  immer@10.1.1: {}
 
   import-fresh@3.3.1:
     dependencies:
@@ -10811,7 +10835,7 @@ snapshots:
       util: 0.12.5
       vm-browserify: 1.1.2
 
-  node-tfhe@0.11.1: {}
+  node-tfhe@1.5.3: {}
 
   nopt@8.1.0:
     dependencies:
@@ -11895,6 +11919,8 @@ snapshots:
 
   tfhe@0.11.1: {}
 
+  tfhe@1.5.3: {}
+
   thenify-all@1.6.0:
     dependencies:
       thenify: 3.3.1
@@ -12519,11 +12545,21 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.3.6: {}
+  zod@4.0.0: {}
 
-  zustand@5.0.12(@types/react@19.2.14)(immer@10.2.0)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4)):
+  zod@4.3.6:
+    optional: true
+
+  zustand@5.0.1(@types/react@19.2.14)(immer@10.1.1)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4)):
     optionalDependencies:
       '@types/react': 19.2.14
-      immer: 10.2.0
+      immer: 10.1.1
+      react: 19.2.4
+      use-sync-external-store: 1.6.0(react@19.2.4)
+
+  zustand@5.0.12(@types/react@19.2.14)(immer@10.1.1)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4)):
+    optionalDependencies:
+      '@types/react': 19.2.14
+      immer: 10.1.1
       react: 19.2.4
       use-sync-external-store: 1.6.0(react@19.2.4)
