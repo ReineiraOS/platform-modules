@@ -2,7 +2,7 @@ import { useAuthStore } from '@/stores/auth-store';
 import { useWalletStore, type WalletProviderType } from '@/stores/wallet-store';
 import { AuthService } from '@/services/AuthService';
 
-const DEFAULT_PROVIDER: WalletProviderType = 'zerodev';
+const DEFAULT_PROVIDER: WalletProviderType = 'jaw';
 
 function buildSiweMessage(domain: string, address: string, statement: string, uri: string, nonce: string): string {
   const now = new Date().toISOString();
