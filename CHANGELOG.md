@@ -1,3 +1,13 @@
+## [0.3.0](https://github.com/ReineiraOS/platform-modules/compare/v0.2.0...v0.3.0) (2026-04-28)
+
+### Features
+
+* **landing:** add landing package to monorepo ([d3e5b08](https://github.com/ReineiraOS/platform-modules/commit/d3e5b08ff7f42d2ed74afce617d1d7647b105f45))
+
+### Bug Fixes
+
+* **ci:** pin eslint to v9 to match plugin peer deps ([bbf386b](https://github.com/ReineiraOS/platform-modules/commit/bbf386bd34e345650821e1dc7147d0117e92680f))
+
 ## [0.2.0](https://github.com/ReineiraOS/platform-modules/compare/v0.1.1...v0.2.0) (2026-04-22)
 
 ### Features
