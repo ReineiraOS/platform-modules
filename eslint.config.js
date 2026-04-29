@@ -6,7 +6,15 @@ import globals from 'globals';
 
 export default tseslint.config(
   {
-    ignores: ['**/dist/**', '**/node_modules/**', '**/drizzle/**', '**/src/generated/**', '**/*.gen.*'],
+    ignores: [
+      '**/dist/**',
+      '**/node_modules/**',
+      '**/drizzle/**',
+      '**/src/generated/**',
+      '**/*.gen.*',
+      '**/.commitlintrc.{js,cjs}',
+      '**/.stylelintrc.{js,cjs}',
+    ],
   },
 
   eslint.configs.recommended,
