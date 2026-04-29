@@ -26,7 +26,7 @@
     "@zerodev/sdk": "^5.5.7",
     "@zerodev/webauthn-key": "^5.5.0",
     "@cofhe/sdk": "^0.4.0",
-    "@jaw.id/core": "latest",
+    "@jaw.id/core": "^0.2.8",
     "tfhe": "0.11.1",
     "axios": "^1",
     "class-variance-authority": "^0.7",

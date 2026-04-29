@@ -1,8 +1,6 @@
 import { useAuthStore } from '@/stores/auth-store';
-import { useWalletStore, type WalletProviderType } from '@/stores/wallet-store';
+import { DEFAULT_PROVIDER_TYPE, useWalletStore, type WalletProviderType } from '@/stores/wallet-store';
 import { AuthService } from '@/services/AuthService';
-
-const DEFAULT_PROVIDER: WalletProviderType = 'zerodev';
 
 function buildSiweMessage(domain: string, address: string, statement: string, uri: string, nonce: string): string {
   const now = new Date().toISOString();
@@ -41,12 +39,12 @@ export function useAuth() {
   const walletDisconnect = useWalletStore((s) => s.disconnect);
   const authLogout = useAuthStore((s) => s.logout);
 
-  async function login(providerType: WalletProviderType = DEFAULT_PROVIDER) {
+  async function login(providerType: WalletProviderType = DEFAULT_PROVIDER_TYPE) {
     const address = await walletConnect(providerType);
     await authenticateWithSiwe(address, providerType);
   }
 
-  async function register(username: string, providerType: WalletProviderType = DEFAULT_PROVIDER) {
+  async function register(username: string, providerType: WalletProviderType = DEFAULT_PROVIDER_TYPE) {
     const address = await walletRegister(providerType, username);
     await authenticateWithSiwe(address, providerType);
   }

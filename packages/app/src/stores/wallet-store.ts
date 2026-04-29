@@ -5,7 +5,7 @@ import { JawProvider } from '@/providers/jaw/jaw.provider';
 
 export type WalletProviderType = 'zerodev' | 'jaw';
 
-const DEFAULT_PROVIDER_TYPE: WalletProviderType = 'jaw';
+export const DEFAULT_PROVIDER_TYPE: WalletProviderType = 'zerodev';
 
 function createProvider(
   type: WalletProviderType,
