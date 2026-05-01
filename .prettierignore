@@ -6,3 +6,4 @@ coverage/
 pnpm-lock.yaml
 CHANGELOG.md
 **/next-env.d.ts
+**/openapi.json
