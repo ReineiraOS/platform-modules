@@ -1,10 +1,11 @@
 import { create } from 'zustand';
 import type { IWalletProvider } from '@/providers/wallet-provider.interface';
 import { ZeroDevProvider } from '@/providers/zerodev/zerodev.provider';
+import { JawProvider } from '@/providers/jaw/jaw.provider';
 
-export type WalletProviderType = 'zerodev';
+export type WalletProviderType = 'zerodev' | 'jaw';
 
-const DEFAULT_PROVIDER_TYPE: WalletProviderType = 'zerodev';
+export const DEFAULT_PROVIDER_TYPE: WalletProviderType = 'zerodev';
 
 function createProvider(
   type: WalletProviderType,
@@ -12,6 +13,8 @@ function createProvider(
   switch (type) {
     case 'zerodev':
       return new ZeroDevProvider();
+    case 'jaw':
+      return new JawProvider();
     default: {
       const exhaustive: never = type;
       throw new Error(`Unsupported wallet provider: ${exhaustive as string}`);
@@ -21,7 +24,7 @@ function createProvider(
 
 function readPersistedProviderType(): WalletProviderType {
   const stored = localStorage.getItem('wallet_provider');
-  if (stored === 'zerodev') return 'zerodev';
+  if (stored === 'zerodev' || stored === 'jaw') return stored;
   return DEFAULT_PROVIDER_TYPE;
 }
 
